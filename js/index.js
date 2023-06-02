@@ -37,8 +37,8 @@ let options = {
 let header = new Header().wrapper;
 document.querySelector(".wrapper").appendChild(header);
 
-document.querySelector(".modalFilm__close").addEventListener("click", () =>{
-    document.querySelector(".modalFilm").classList.toggle("active")
+document.querySelector(".modal__close").addEventListener("click", () =>{
+    document.querySelector(".modalEntrance").classList.toggle("active")
 })
 
 document.querySelector(".form").addEventListener("submit", async function(link){
