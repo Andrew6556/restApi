@@ -11,7 +11,7 @@ export class Header{
                         <div class="header__logo">Ваш любимый <br><span class="header__logoDecor">Кинотеатр</span></div>
                         <form class="form" action="#">
                             <input class="header__searchBox" type="text" name="Search" placeholder="Фильмы, сериалы, персоны">
-                            <button type="submit" class="form__btn"><img class="form__btn-svg" src="./img/icon/search.svg" alt="search"></button>
+                            <button type="submit" class="form__btn"><img class="form__btn-svg" src="./img/icon/searchBox/search.svg" alt="search"></button>
                         </form>
                     </div>
                     <!-- header__topContent -->

@@ -214,28 +214,84 @@
 }
 .modalFilm{
     &__content{
-        width: 600px;
-        height: 500px;
-        background: #2C2C55;
+        width: 450px;
+        background: $clWhite;
         box-shadow: none;
         position: static;
         border: 1px solid #ffffff2c;
         padding: 20px;
     }
     &__close{
-        top: 8%;
+        top: 4%;
         right: 5%;
         color: $clWhite;
         font-weight: 600;
     }
-    &__title{
+}
+
+.form {
+    &__title {
         font-size: 28px;
-        color: $clWhite;
         font-family:Verdana, Geneva, Tahoma, sans-serif;
+        background-image:  linear-gradient(90deg, #0B69A3 50%, #40C3F7 95.49%);;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 40px;
+    }
+    
+    &__item {
+        margin-bottom: 20px;
+    }
+    &__label{
+        display: block;
+        font-size: 18px;
         margin-bottom: 5px;
     }
-    &__inner{
+    &_item_email {
     }
+    &__input {
+        background: #F0F4F8;
+        height: 50px;
+        width: 100%;
+        border-radius: 15px;
+        border: 1px solid #D0D5DD;
+        padding: 0 12px;
+        &::placeholder{
+            font-size: 16px;
+        }
+    }
+    .password{
+        padding: 0 74px 0 12px;
+    }
+    &__password{
+        position: relative;
+    }
+    &__passwordImg{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 70px;
+    }
+    &_item_login {
+    }
+    &_item_password {
+    }
+    &_item_confirmPassword {
+    }
+    
+}
+.modal__btn {
+    font-size: 20px;
+    color: $clWhite;
+    width: 100%;
+    padding: 16px;
+    border-radius: 32px;
+    background: #127FBF;
 }
 
 // slider

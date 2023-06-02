@@ -15,12 +15,51 @@
         <div class="modalFilm__body modal__body">
             <div class="modalFilm__content modal__content">
                 <span class="modalFilm__close modal__close">X</span>
-                <div class="modalFilm__inner">
-                    <div class="modalFilm__title title">
-                        create an account
+                <form class="form" action="#">
+                    <h3 class="form__title title">Create and account</h3>
+                    <div class="w">
+                        <div class="form__item form__item_email">
+                            <label class="form__label" for="form__Email">Your Email</label>
+                            <input class="form__input" id="form__Email" type="text" placeholder="Name@example.com">
+                        </div>
+                        <!-- form_item_email -->
+                        <div class="form__item form__item_login">
+                            <label class="form__label" for="form__login">Your login</label>
+                            <input class="form__input" id="form__login" type="text" placeholder="Your login">
+                        </div>
+                        <!-- form_item_login -->
+                        <div class="form__item form__item_password">
+                            <label class="form__label" for="formPassword">Password</label>
+                            <div class="form__password">
+                                <input class="form__input password" id="formPassword" type="password" placeholder="Your password">
+                                <span class="form__passwordImg">
+                                    <img src="./img/icon/modal/hide.png" alt="иконка скрытого пароля">
+                                </span>
+                            </div>
+                        </div>
+                        <!-- form_item_password -->
+                        <div class="form__item form__item_confirmPassword">
+                            <label class="form__label" for="form_confirmPassword">Confirm password</label>
+                            <div class="form__password">
+                                <input class="form__input password" id="form_confirmPassword" type="password" placeholder="Confirm password">
+                                <span class="form__passwordImg">
+                                    <img src="./img/icon/modal/hide.png" alt="иконка скрытого пароля">
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <!-- modalFilm__inner -->
+
+                    <!-- form_item_confirmPassword -->
+                    <!-- <div class="form__checkbox">
+                        <div class="checkbox">
+                            <input checked id="formAgreement" type="checkbox" name="agreement" class="checkbox__input">
+                            <label for="formAgreement" class="checkbox__label  grey-text">
+                                Я знаком с условиями политики кофеденциальности<br> и соглашаюсь с ними.
+                            </label>
+                        </div>
+                    </div> -->
+                    <button class="modal__btn btn" type="submit">Sign Up</button>
+                </form>
             </div>
         </div>
     </div>
