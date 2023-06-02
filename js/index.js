@@ -13,7 +13,18 @@ let keyword_search = name => `http://kinopoiskapiunofficial.tech/api/v2.1/films/
     films          = `data/info_films.json`;
 
 
-
+document.querySelectorAll(".form__passwordImg").forEach(password_img=>{
+    password_img.addEventListener("click", (event) =>{
+        if(event.target.closest(".form__password").querySelector(".password").type == "text"){
+            event.target.closest(".form__password").querySelector(".password").type = "password";
+            event.target.closest(".form__password").querySelector(".form__passwordImg-item").src = "./img/icon/modal/hide.png"
+        }else{
+            event.target.closest(".form__password").querySelector(".password").type = "text";
+            event.target.closest(".form__password").querySelector(".form__passwordImg-item").src = "./img/icon/modal/eye.png"
+        }
+        
+    })
+})
 
 let options = {
     headers: {
@@ -119,8 +130,6 @@ function get_working_link(links){
 
 create_slider(films_videos, films_img, films)
     .then(div_cards => document.querySelector(".header__films").appendChild(new Slider(div_cards).wrapper))
-
-
 
 
 async function deduce_random_fact(){

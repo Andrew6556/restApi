@@ -380,6 +380,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 15px;
   border: 1px solid #D0D5DD;
   padding: 0 12px;
+  font-size: 16px;
 }
 .form__input::-moz-placeholder {
   font-size: 16px;
