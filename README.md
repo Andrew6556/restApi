@@ -1,5 +1,2 @@
 
-"# closuresContextCallback." 
-"# jsClosuresContextCallback" 
-"# jsApiKinoPoisk" 
 "# restApi" 
