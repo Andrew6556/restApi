@@ -368,17 +368,18 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   color: black;
   transition: all 500ms ease-in-out;
+  box-shadow: rgba(25, 146, 212, 0.5921568627) 0px 30px 60px -12px inset, rgba(15, 82, 118, 0.8392156863) 0px 18px 36px -28px inset;
 }
 .modalEntrance__group_choice:hover {
   color: white;
-  background: rgba(18, 128, 191, 0.7607843137);
+  background: rgba(18, 102, 151, 0.4823529412);
 }
 .modalEntrance__group_active {
   color: white;
   background: #127FBF;
 }
 .modalEntrance__group_active:hover {
-  background: rgba(25, 146, 212, 0.8392156863);
+  background: rgba(25, 146, 212, 0.7529411765);
 }
 
 .form__item {

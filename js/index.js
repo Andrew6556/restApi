@@ -27,12 +27,12 @@ document.querySelectorAll(".form__passwordImg").forEach(password_img=>{
 })
 
 document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
-        button.addEventListener("click", function (event){
-            if(!button.classList.contains("modalEntrance__group_active")){
-                event.target.parentElement.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
-                event.target.classList.add("modalEntrance__group_active")
-            }
-        })
+    button.addEventListener("click", function (event){
+        if(!button.classList.contains("modalEntrance__group_active")){
+            event.target.parentElement.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
+            event.target.classList.add("modalEntrance__group_active")
+        }
+    })
 })
 
 
