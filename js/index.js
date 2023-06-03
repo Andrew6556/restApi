@@ -26,6 +26,36 @@ document.querySelectorAll(".form__passwordImg").forEach(password_img=>{
     })
 })
 
+document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
+        button.addEventListener("click", function (event){
+            if(!button.classList.contains("modalEntrance__group_active")){
+                event.target.parentElement.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
+                event.target.classList.add("modalEntrance__group_active")
+            }
+        })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let options = {
     headers: {
         'X-API-KEY': '4ed6a4de-1c65-48b4-9d9b-922f9cfbd78e',
@@ -40,6 +70,7 @@ document.querySelector(".wrapper").appendChild(header);
 document.querySelector(".modal__close").addEventListener("click", () =>{
     document.querySelector(".modalEntrance").classList.toggle("active")
 })
+
 
 document.querySelector(".form").addEventListener("submit", async function(link){
     link.preventDefault();

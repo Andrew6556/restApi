@@ -365,24 +365,20 @@ h1, h2, h3, h4, h5, h6 {
   width: 50%;
   font-size: 30px;
   padding: 15px 0;
-  border-radius: 8px;
   cursor: pointer;
+  color: black;
+  transition: all 500ms ease-in-out;
+}
+.modalEntrance__group_choice:hover {
+  color: white;
+  background: rgba(18, 128, 191, 0.7607843137);
 }
 .modalEntrance__group_active {
-  color: black;
-  transition: all 2s ease-in-out;
+  color: white;
+  background: #127FBF;
 }
 .modalEntrance__group_active:hover {
-  background: #40C3F7;
-  transition: all 1s ease-in;
-}
-.modalEntrance__SignUp {
-  background: linear-gradient(90deg, #0B69A3 50%, #40C3F7 95.49%);
-}
-.modalEntrance__logIn {
-  background-image: linear-gradient(90deg, #0B69A3 50%, #40C3F7 95.49%);
-  -webkit-background-clip: text;
-  color: transparent;
+  background: rgba(25, 146, 212, 0.8392156863);
 }
 
 .form__item {
@@ -432,6 +428,11 @@ h1, h2, h3, h4, h5, h6 {
   padding: 16px;
   border-radius: 15px;
   background: #127FBF;
+  transition: all 500ms ease-in-out;
+}
+.modalEntrance__btn:hover {
+  color: black;
+  background: rgba(25, 146, 212, 0.8392156863);
 }
 
 .slider__navigation {
