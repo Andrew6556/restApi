@@ -281,7 +281,7 @@
         font-size: 18px;
         transition: all 500ms ease-in-out;
         &:focus{
-            border: 1.2px solid black;
+            box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
         }
         &::placeholder{
             font-size: 18px;
