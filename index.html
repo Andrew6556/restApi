@@ -27,23 +27,24 @@
                         <!-- form_item_email -->
                         <div class="form__item form__item_login">
                             <label class="form__label" for="form__login">Your login</label>
-                            <input class="form__input" id="form__login" type="text" placeholder="Your login">
+                            <input class="form__input" id="form__login" type="text" placeholder="Your login" required>
                         </div>
                         <!-- form_item_login -->
                         <div class="form__item form__item_password">
-                            <label class="form__label" for="formPassword">Password</label>
+                            <label class="form__label label__password" for="formPassword">Необходимо указать пароль</label>
                             <div class="form__password">
-                                <input class="form__input password" id="formPassword" type="password" placeholder="Your password">
+                                <input class="form__input password" id="formPassword" type="password" placeholder="Your password" maxlength="15" required>
                                 <span class="form__passwordImg">
                                     <img class="form__passwordImg-item" src="./img/icon/modal/hide.png" alt="иконка скрытого пароля">
                                 </span>
+                                <div class="form__counterText"></div>
                             </div>
                         </div>
                         <!-- form_item_password -->
                         <div class="form__item form__item_confirmPassword">
-                            <label class="form__label" for="form_confirmPassword">Confirm password</label>
+                            <label class="form__label " for="form_confirmPassword">Confirm password</label>
                             <div class="form__password">
-                                <input class="form__input password" id="form_confirmPassword" type="password" placeholder="Confirm password">
+                                <input class="form__input password" id="form_confirmPassword" type="password" placeholder="Confirm password" maxlength="8" required>
                                 <span class="form__passwordImg">
                                     <img class="form__passwordImg-item" src="./img/icon/modal/hide.png" alt="иконка скрытого пароля">
                                 </span>

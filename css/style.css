@@ -408,8 +408,38 @@ h1, h2, h3, h4, h5, h6 {
 .form .password {
   padding: 0 74px 0 12px;
 }
+.form__item_password {
+  position: relative;
+}
+.form .label__password {
+  display: none;
+  z-index: 1000;
+  position: absolute;
+  left: 105%;
+  top: 17%;
+  color: #f0f4f8;
+  background: rgba(255, 0, 0, 0.7607843137);
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 15px;
+  padding: 10px;
+}
+.form .label__password::before {
+  content: "";
+  background: url("../img/icon/searchBox/left-arrow.png") left no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 8px 10px 8px 10px;
+}
 .form__password {
   position: relative;
+}
+.form__counterText {
+  font-size: 17px;
+  position: absolute;
+  bottom: -23px;
+  right: 8px;
 }
 .form__passwordImg {
   position: absolute;

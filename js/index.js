@@ -35,10 +35,22 @@ document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
     })
 })
 
-
-
-
-
+const elemLogin = document.querySelector('.password');
+const elemCounter = elemLogin.nextElementSibling;
+const maxLength = elemLogin.maxLength;
+const updateCounter = (e) => {
+    const len = e ? e.target.value.length : 0;
+    document.querySelector(".label__password").style.display = "flex"
+    if (!len){
+        document.querySelector(".label__password").innerText = "Необходимо указать пароль"
+    }else if(len < 8){
+        document.querySelector(".label__password").innerText = "Пароль должен содержать не менее 8 символов"
+    }else{
+        document.querySelector(".label__password").style.display = "none"
+    }
+}
+elemLogin.addEventListener('keyup', updateCounter);
+elemLogin.addEventListener('keydown', updateCounter);
 
 
 
