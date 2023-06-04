@@ -1,11 +1,15 @@
 "use strict";
 
-export default class Modal{
+export class Form{
     constructor(data){
-        this.modalWrapper = data;
-        this.modalWrapper.querySelector(".modal__close").addEventListener("click", () => {
-            this.modalWrapper.classList.toggle("active")
-        })
+        // this.formWrapper = data;
+        console.log(this)
+        // this.inputPassword = this.querySelector('.input_password');
+        // const elemConfirm_password = document.querySelector('.input_confirmPassword');
+        console.log(this.modalWrapper)
+        // this.modalWrapper.querySelector(".modal__close").addEventListener("click", () => {
+        //     this.modalWrapper.classList.toggle("active")
+        // })
     }
     
 }

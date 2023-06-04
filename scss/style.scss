@@ -280,6 +280,9 @@
         padding: 0 12px;
         font-size: 18px;
         transition: all 500ms ease-in-out;
+        &:focus{
+            border: 1.2px solid black;
+        }
         &::placeholder{
             font-size: 18px;
         }

@@ -3,7 +3,7 @@
 import {Card} from "../modules/Card.js";
 import {Header} from "../modules/Header.js";
 import {Slider} from "../modules/Slider.js";
-
+import {Form} from "../modules/Form.js";
 
 
 let keyword_search = name => `http://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=${name}&page=1`,
@@ -55,14 +55,18 @@ const updateCounter = () => {
         document.querySelector(".label__password").style.display = "none"
     }
 }
-// console.log(document.querySelector(".modal"))
-//     let modal = new Modal(item);
+console.log(document.querySelectorAll(".form"))
+document.querySelectorAll(".form").forEach(item =>{
+    let modal = new Form(item);
+    console.log(modal)
     // modal.modalWrapper.querySelector(".form")?.addEventListener("submit", (link) =>{
     //     link.preventDefault();
     //     if (modal.validation(link.target, data.add_card) !== false){
     //         link.target.reset()
     //     }
     // })
+})
+
 
 
 const printError = () => {
