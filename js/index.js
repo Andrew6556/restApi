@@ -35,23 +35,35 @@ document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
     })
 })
 
-const elemLogin = document.querySelector('.password');
-const elemCounter = elemLogin.nextElementSibling;
-const maxLength = elemLogin.maxLength;
-const updateCounter = (e) => {
-    const len = e ? e.target.value.length : 0;
+const elemLogin            = document.querySelector('.input_password');
+const elemConfirm_password = document.querySelector('.input_confirmPassword');
+const updateCounter = (event) => {
+    const symbols_len = event ? event.target.value.length : 0;
     document.querySelector(".label__password").style.display = "flex"
-    if (!len){
+    if (!symbols_len){
         document.querySelector(".label__password").innerText = "Необходимо указать пароль"
-    }else if(len < 8){
+    }else if(symbols_len < 8){
         document.querySelector(".label__password").innerText = "Пароль должен содержать не менее 8 символов"
     }else{
         document.querySelector(".label__password").style.display = "none"
     }
 }
+const printError = (event) => {
+    let match_check = elemLogin.value.length >= 8 && event.target.value.length >= 8 ?
+                                            event.target.value == elemLogin.value: false;
+
+    if (match_check){
+        document.querySelector(".label__confirmPassword").style.display = "none";
+        elemLogin.style.border            = "1px solid green";
+        elemConfirm_password.style.border = "1px solid green";
+    }else{
+        document.querySelector(".label__confirmPassword").style.display = "flex";
+    }
+}
 elemLogin.addEventListener('keyup', updateCounter);
 elemLogin.addEventListener('keydown', updateCounter);
-
+elemConfirm_password.addEventListener('keyup', printError);
+elemConfirm_password.addEventListener('keydown', printError);
 
 
 
