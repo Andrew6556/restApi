@@ -230,7 +230,6 @@
     &__group{
         display: flex;
         justify-content: space-between;
-        margin-bottom: 25px;
         &_choice{
             width: 50%;
             font-size: 30px;
@@ -257,6 +256,13 @@
 .form {
     &__item {
         margin-bottom: 20px;
+    }
+    &__title{
+        font-size: 36px;
+        background: linear-gradient(251deg, green 2%, rgb(0 165 255 / 75%) 95.49%);
+        background-clip: text;
+        color: transparent;
+        margin: 25px 0;
     }
     &__label{
         display: block;
@@ -342,12 +348,6 @@
         bottom: 0;
         width: 70px;
     }
-    &_item_login {
-    }
-    
-    &_item_confirmPassword {
-    }
-    
 }
 .modalEntrance__btn {
     font-size: 20px;

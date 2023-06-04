@@ -48,10 +48,19 @@ const updateCounter = () => {
         document.querySelector(".label__password").style.display = "none"
     }
 }
+// console.log(document.querySelector(".modal"))
+//     let modal = new Modal(item);
+    // modal.modalWrapper.querySelector(".form")?.addEventListener("submit", (link) =>{
+    //     link.preventDefault();
+    //     if (modal.validation(link.target, data.add_card) !== false){
+    //         link.target.reset()
+    //     }
+    // })
+
+
 const printError = () => {
     let match_check = elemLogin.value.length >= 8 && elemConfirm_password.value.length >= 8 ?
                                             elemConfirm_password.value == elemLogin.value: false;
-    console.log(elemConfirm_password.value.length)
     if (match_check){
         document.querySelector(".label__confirmPassword").style.display = "none";
         elemLogin.style.border            = "1px solid green";
