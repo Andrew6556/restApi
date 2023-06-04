@@ -18,7 +18,7 @@
                     <div class="modalEntrance__SignUp modalEntrance__group_choice modalEntrance__group_active title">Create account</div>
                     <div class="modalEntrance__logIn  modalEntrance__group_choice title" >Log in</div>
                 </div>
-                <form class="form" action="#">
+                <form class="form active" action="#">
                     <!-- Welcome Back! -->
                     <div class="form__title title">Sign Up for Free</div>
                     <div class="form__inner">
@@ -39,7 +39,6 @@
                                 <span class="form__passwordImg">
                                     <img class="form__passwordImg-item" src="./img/icon/modal/hide.png" alt="иконка скрытого пароля">
                                 </span>
-                                <div class="form__counterText"></div>
                             </div>
                         </div>
                         <!-- form_item_password -->
@@ -52,6 +51,32 @@
                                 </span>
                             </div>
                         </div>
+                    </div>
+                    
+                    <button class="modalEntrance__btn btn" type="submit">Sign Up</button>
+                </form>
+                <form class="form" action="#">
+                    <div class="form__title title">Welcome Back!</div>
+                    <div class="form__inner">
+                        <div class="form__item form__item_email">
+                            <label class="form__label" for="form__Email">Your Email</label>
+                            <input class="form__input" id="form__Email" type="text" placeholder="Name@example.com">
+                        </div>
+                        <!-- form_item_email -->
+                        <div class="form__item form__item_login">
+                            <label class="form__label" for="form__login">Your login</label>
+                            <input class="form__input" id="form__login" type="text" placeholder="Your login" required>
+                        </div>
+                        <!-- form_item_login -->
+                        <div class="form__item form__item_password">
+                            <div class="form__password">
+                                <input class="form__input password input_password" id="formPassword" type="password" placeholder="Your password" maxlength="15" required>
+                                <span class="form__passwordImg">
+                                    <img class="form__passwordImg-item" src="./img/icon/modal/hide.png" alt="иконка скрытого пароля">
+                                </span>
+                            </div>
+                        </div>
+                        <!-- form_item_password -->
                     </div>
                     
                     <button class="modalEntrance__btn btn" type="submit">Sign Up</button>
