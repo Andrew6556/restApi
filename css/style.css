@@ -130,7 +130,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .active {
-  display: none;
   visibility: hidden;
   opacity: 0;
 }
@@ -139,6 +138,10 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1200px;
   margin: 0 auto;
   width: 96%;
+}
+
+.form__active {
+  display: none;
 }
 
 .FactLoading {
@@ -363,7 +366,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .modalEntrance__group_choice {
   width: 50%;
-  font-size: 30px;
+  font-size: 22px;
   padding: 15px 0;
   cursor: pointer;
   color: black;
@@ -486,6 +489,7 @@ h1, h2, h3, h4, h5, h6 {
 .modalEntrance__btn {
   font-size: 20px;
   color: white;
+  font-family: "Times New Roman", Times, serif;
   width: 100%;
   padding: 16px;
   border-radius: 15px;

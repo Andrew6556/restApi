@@ -31,6 +31,13 @@ document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
         if(!button.classList.contains("modalEntrance__group_active")){
             event.target.parentElement.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
             event.target.classList.add("modalEntrance__group_active")
+            if (event.target.innerText == "Log In"){
+                document.querySelector('.form__SignUp').classList.add("form__active")
+                document.querySelector('.form__LogIn').classList.remove("form__active")
+            }else{
+                document.querySelector('.form__SignUp').classList.remove("form__active")
+                document.querySelector('.form__LogIn').classList.add("form__active")
+            }
         }
     })
 })
