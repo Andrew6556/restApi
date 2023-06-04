@@ -37,8 +37,8 @@ document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
 
 const elemLogin            = document.querySelector('.input_password');
 const elemConfirm_password = document.querySelector('.input_confirmPassword');
-const updateCounter = (event) => {
-    const symbols_len = event ? event.target.value.length : 0;
+const updateCounter = () => {
+    const symbols_len = elemLogin.value.length;
     document.querySelector(".label__password").style.display = "flex"
     if (!symbols_len){
         document.querySelector(".label__password").innerText = "Необходимо указать пароль"
@@ -48,20 +48,30 @@ const updateCounter = (event) => {
         document.querySelector(".label__password").style.display = "none"
     }
 }
-const printError = (event) => {
-    let match_check = elemLogin.value.length >= 8 && event.target.value.length >= 8 ?
-                                            event.target.value == elemLogin.value: false;
-
+const printError = () => {
+    let match_check = elemLogin.value.length >= 8 && elemConfirm_password.value.length >= 8 ?
+                                            elemConfirm_password.value == elemLogin.value: false;
+    console.log(elemConfirm_password.value.length)
     if (match_check){
         document.querySelector(".label__confirmPassword").style.display = "none";
         elemLogin.style.border            = "1px solid green";
         elemConfirm_password.style.border = "1px solid green";
+    }else if(!elemConfirm_password.value.length){
+        document.querySelector(".label__confirmPassword").style.display = "none";
     }else{
         document.querySelector(".label__confirmPassword").style.display = "flex";
+        elemLogin.style.border             = "1px solid #D0D5DD";
+        elemConfirm_password.style.border  = "1px solid #D0D5DD";
     }
 }
-elemLogin.addEventListener('keyup', updateCounter);
-elemLogin.addEventListener('keydown', updateCounter);
+elemLogin.addEventListener('keyup', () =>{
+    updateCounter()
+    printError()
+});
+elemLogin.addEventListener('keydown', () =>{
+    updateCounter()
+    printError()
+});
 elemConfirm_password.addEventListener('keyup', printError);
 elemConfirm_password.addEventListener('keydown', printError);
 

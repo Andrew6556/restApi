@@ -398,6 +398,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid #D0D5DD;
   padding: 0 12px;
   font-size: 18px;
+  transition: all 500ms ease-in-out;
 }
 .form__input::-moz-placeholder {
   font-size: 18px;
