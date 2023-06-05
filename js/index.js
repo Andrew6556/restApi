@@ -42,68 +42,22 @@ document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
     })
 })
 
-// const elemLogin            = document.querySelector('.input_password');
-// const elemConfirm_password = document.querySelector('.input_confirmPassword');
-// const fullness_check_password = () => {
-//     const symbols_len = elemLogin.value.length;
-//     document.querySelector(".label__password").style.display = "flex"
-//     if (!symbols_len){
-//         document.querySelector(".label__password").innerText = "Необходимо указать пароль"
-//     }else if(symbols_len < 8){
-//         document.querySelector(".label__password").innerText = "Пароль должен содержать не менее 8 символов"
-//     }else{
-//         document.querySelector(".label__password").style.display = "none"
-//     }
-// }
 // console.log(document.querySelectorAll(".form"))
 document.querySelectorAll(".form").forEach(item =>{
-    let modal = new Form(item);
+    let form = new Form(item);
     // console.log(modal)
-    // modal.modalWrapper.querySelector(".form")?.addEventListener("submit", (link) =>{
-    //     link.preventDefault();
-    //     if (modal.validation(link.target, data.add_card) !== false){
-    //         link.target.reset()
-    //     }
-    // })
+    // andre.kozloff@gmail.com
+    // console.log(form.form_Wrapper)
+    form.form_Wrapper.addEventListener("submit", (link) =>{
+        link.preventDefault();
+        console.log(11111111)
+        // if (modal.validation(link.target, data.add_card) !== false){
+        //     link.target.reset()
+        // }
+    })
 })
 
 
-
-const printError = () => {
-    let match_check = elemLogin.value.length >= 8 && elemConfirm_password.value.length >= 8 ?
-                                            elemConfirm_password.value == elemLogin.value: false;
-    if (match_check){
-        document.querySelector(".label__confirmPassword").style.display = "none";
-        elemLogin.style.border            = "1px solid green";
-        elemConfirm_password.style.border = "1px solid green";
-    }else if(!elemConfirm_password.value.length){
-        document.querySelector(".label__confirmPassword").style.display = "none";
-    }else{
-        document.querySelector(".label__confirmPassword").style.display = "flex";
-        elemLogin.style.border             = "1px solid #D0D5DD";
-        elemConfirm_password.style.border  = "1px solid #D0D5DD";
-    }
-}
-
-// let c = ['keyup','keydown']
-// c.map(event => elemLogin.addEventListener(event,() =>{
-//     fullness_check_password()
-//     printError()
-// }))
-// c.map(event => elemConfirm_password.addEventListener(event, ()=>{
-//     printError()
-// }))
-//////////////////////////////////////////////////
-// elemLogin.addEventListener('keydown', () =>{
-//     fullness_check_password()
-//     printError()
-// });
-// elemLogin.addEventListener('keyup', () =>{
-//     fullness_check_password()
-//     printError()
-// });
-// elemConfirm_password.addEventListener('keyup', printError);
-// elemConfirm_password.addEventListener('keydown', printError);
 
 
 

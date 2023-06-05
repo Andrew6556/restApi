@@ -13,10 +13,24 @@ export class Form{
                 this.fullness_check_password(event)
                 this.printError()
             }))
-            event_list.map(event =>  this.input_confirm.addEventListener(event, () =>{
-                this.printError()
-            }))
+            event_list.map(event =>  this.input_confirm.addEventListener(event,this.printError))
+
             this.form_Wrapper.querySelector(".input__email").addEventListener("input", this.check_email)
+            event_list.map(event => this.form_Wrapper.querySelector(".input__login").addEventListener(event, this.login_verification))
+        }
+    }
+    validation(){
+        let a = this.form_Wrapper.querySelectorAll(".form__input")
+        
+        console.log(a)
+    }
+    login_verification(){
+        if(!this.value.length){
+            this.style.boxShadow = "none";
+            this.style.border    = "1px solid #D0D5DD";
+        }else{
+            this.style.border    = "2px solid rgb(0 128 0)";
+            this.style.boxShadow = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
         }
     }
     check_email(){
@@ -25,6 +39,7 @@ export class Form{
             this.parentElement.querySelector(".label__email").style.display = "none";
             this.style.border    = "2px solid rgb(0 128 0)";
             this.style.boxShadow = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
+
         } else {
             this.parentElement.querySelector(".label__email").style.display = "flex";
             this.style.boxShadow = "none";
