@@ -447,6 +447,30 @@ h1, h2, h3, h4, h5, h6 {
      object-fit: cover;
   padding: 8px 10px 8px 10px;
 }
+.form .form__item_email {
+  position: relative;
+}
+.form .label__email {
+  display: none;
+  z-index: 1000;
+  position: absolute;
+  left: 101%;
+  top: 15%;
+  color: #f0f4f8;
+  background: rgba(255, 0, 0, 0.7607843137);
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 15px;
+  padding: 10px;
+}
+.form .label__email::before {
+  content: "";
+  background: url("../img/icon/searchBox/left-arrow.png") left no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 8px 10px 8px 10px;
+}
 .form .label__confirmPassword {
   display: none;
   z-index: 1000;
