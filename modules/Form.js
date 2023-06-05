@@ -19,31 +19,45 @@ export class Form{
             event_list.map(event => this.form_Wrapper.querySelector(".input__login").addEventListener(event, this.login_verification))
         }
     }
-    validation(){
-        let a = this.form_Wrapper.querySelectorAll(".form__input")
+    activate_button(){
+        let inputs   = Array.from(this.form_Wrapper.querySelectorAll(".form__input")),
+            form_btn = this.form_Wrapper.querySelector(".modalEntrance__btn");
+
+        let confirmed_inputs = inputs.filter(input => {
+            return input.style.boxShadow == "rgba(0, 0, 0, 0.75) 0px 5px 15px"
+        })
         
-        console.log(a)
-    }
-    login_verification(){
-        if(!this.value.length){
-            this.style.boxShadow = "none";
-            this.style.border    = "1px solid #D0D5DD";
+        if(confirmed_inputs.length == inputs.length){
+            form_btn.disabled = false;
+            form_btn.style.cursor = "pointer";
         }else{
-            this.style.border    = "2px solid rgb(0 128 0)";
-            this.style.boxShadow = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
+            form_btn.disabled = true;
+            form_btn.style.cursor = "not-allowed";
         }
     }
-    check_email(){
-        const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
-        if (EMAIL_REGEXP.test(this.value)) {
-            this.parentElement.querySelector(".label__email").style.display = "none";
-            this.style.border    = "2px solid rgb(0 128 0)";
-            this.style.boxShadow = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
+    login_verification = (event) => {
+        if(!event.target.value.length){
+            event.target.style.boxShadow = "none";
+            event.target.style.border    = "1px solid #D0D5DD";
+        }else{
+            event.target.style.border    = "2px solid rgb(0 128 0)";
+            event.target.style.boxShadow = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
 
+            this.activate_button()
+        }
+    }
+    check_email = (event) =>{
+        const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+        if (EMAIL_REGEXP.test(event.target.value)) {
+            event.target.parentElement.querySelector(".label__email").style.display = "none";
+            event.target.style.border                                               = "2px solid rgb(0 128 0)";
+            event.target.style.boxShadow                                            = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
+
+            this.activate_button()
         } else {
-            this.parentElement.querySelector(".label__email").style.display = "flex";
-            this.style.boxShadow = "none";
-            this.style.border    = "1px solid #D0D5DD";
+            event.target.parentElement.querySelector(".label__email").style.display = "flex";
+            event.target.style.boxShadow                                            = "none";
+            event.target.style.border                                               = "1px solid #D0D5DD";
         }
     }
     printError = () => {
@@ -57,6 +71,8 @@ export class Form{
 
             this.input_confirm.style.border     = "2px solid rgb(0 128 0)";
             this.input_confirm.style.boxShadow = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
+
+            this.activate_button()
         }else if(!this.input_confirm.value.length){
             document.querySelector(".label__confirmPassword").style.display = "none";
         }else{
