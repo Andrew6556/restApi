@@ -6,9 +6,11 @@ export class Form{
         this.input_password = this.form_Wrapper.querySelector('.input_password');
 
         this.input_confirm  = this.form_Wrapper.querySelector('.input_confirmPassword');
-        if (this.input_confirm){
-            let event_list = ['keyup','keydown'];
 
+        let event_list = ['keyup','keydown'];
+
+        event_list.map(event => this.form_Wrapper.querySelector(".input__login").addEventListener(event, this.login_verification))
+        if (this.input_confirm){
             event_list.map(event => this.input_password.addEventListener(event, (event) =>{
                 this.fullness_check_password(event)
                 this.printError()
@@ -16,7 +18,6 @@ export class Form{
             event_list.map(event =>  this.input_confirm.addEventListener(event,this.printError))
 
             this.form_Wrapper.querySelector(".input__email").addEventListener("input", this.check_email)
-            event_list.map(event => this.form_Wrapper.querySelector(".input__login").addEventListener(event, this.login_verification))
         }
     }
     activate_button(){
