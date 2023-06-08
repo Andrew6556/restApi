@@ -222,6 +222,7 @@
         position: static;
         border: 1px solid #ffffff2c;
         padding: 20px;
+        box-shadow: rgba(255, 255, 255, 0.75) 0px 5px 15px;
     }
     &__close{
         top: 4%;
@@ -276,7 +277,7 @@
         height: 50px;
         width: 100%;
         border-radius: 15px;
-        border: 1px solid #D0D5DD;
+        border: 1px solid #0451cd3c;
         padding: 0 12px;
         font-size: 18px;
         transition: all 500ms ease-in-out;
@@ -377,6 +378,7 @@
         width: 70px;
     }
 }
+// .
 .modalEntrance__btn {
     font-size: 20px;
     color: $clWhite;

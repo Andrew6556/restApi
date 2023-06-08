@@ -10,13 +10,16 @@ export class Form{
         let event_list = ['keyup','keydown'];
 
         event_list.map(event => this.form_Wrapper.querySelector(".input__login").addEventListener(event, this.login_verification))
+        event_list.map(event => this.form_Wrapper.querySelector(".input__email").addEventListener(event, this.check_email))
+
         if (this.input_confirm){
             event_list.map(event => this.input_password.addEventListener(event, (event) =>{
                 this.fullness_check_password(event)
                 this.printError()
             }))
             event_list.map(event => this.input_confirm.addEventListener(event,this.printError))
-            event_list.map(event => this.form_Wrapper.querySelector(".input__email").addEventListener(event, this.check_email))
+        }else{
+            event_list.map(event => this.input_password.addEventListener(event, this.fullness_check_password))
         }
     }
     activate_button(){
@@ -46,6 +49,7 @@ export class Form{
         this.activate_button()
     }
     check_email = (event) =>{
+        console.log(event.target.parentElement.querySelector(".label__email"))
         const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
         if (EMAIL_REGEXP.test(event.target.value)) {
             event.target.parentElement.querySelector(".label__email").style.display = "none";
@@ -57,7 +61,6 @@ export class Form{
             event.target.style.border                                               = "1px solid #D0D5DD";
         }
         this.activate_button()
-
     }
     printError = () => {
         let match_check = this.input_password.value.length >= 8 && this.input_confirm.value.length >= 8 ?
@@ -69,9 +72,9 @@ export class Form{
             this.input_password.style.boxShadow = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
 
             this.input_confirm.style.border     = "2px solid rgb(0 128 0)";
-            this.input_confirm.style.boxShadow = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
+            this.input_confirm.style.boxShadow  = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
         }else if(!this.input_confirm.value.length){
-            document.querySelector(".label__confirmPassword").style.display = "none";
+            this.form_Wrapper.querySelector(".label__confirmPassword").style.display = "none";
         }else{
             this.form_Wrapper.querySelector(".label__confirmPassword").style.display = "flex";
 
@@ -85,13 +88,14 @@ export class Form{
 
     }
     fullness_check_password(event){
-        document.querySelector(".label__password").style.display = "flex";
+        let label_password = event.target.closest(".form__item_password").querySelector(".label__password");
+        label_password.style.display = "flex";
         if (!event.target.value.length){
-            document.querySelector(".label__password").innerText = "Необходимо указать пароль";
+            label_password.innerText = "Необходимо указать пароль";
         }else if(event.target.value.length < 8){
-            document.querySelector(".label__password").innerText = "Пароль должен содержать не менее 8 символов";
+            label_password.innerText = "Пароль должен содержать не менее 8 символов";
         }else{
-            document.querySelector(".label__password").style.display = "none";
+            label_password.style.display = "none";
         }
     }
 }
