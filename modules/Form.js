@@ -15,9 +15,8 @@ export class Form{
                 this.fullness_check_password(event)
                 this.printError()
             }))
-            event_list.map(event =>  this.input_confirm.addEventListener(event,this.printError))
-
-            this.form_Wrapper.querySelector(".input__email").addEventListener("input", this.check_email)
+            event_list.map(event => this.input_confirm.addEventListener(event,this.printError))
+            event_list.map(event => this.form_Wrapper.querySelector(".input__email").addEventListener(event, this.check_email))
         }
     }
     activate_button(){
@@ -43,9 +42,8 @@ export class Form{
         }else{
             event.target.style.border    = "2px solid rgb(0 128 0)";
             event.target.style.boxShadow = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
-
-            this.activate_button()
         }
+        this.activate_button()
     }
     check_email = (event) =>{
         const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
@@ -53,13 +51,13 @@ export class Form{
             event.target.parentElement.querySelector(".label__email").style.display = "none";
             event.target.style.border                                               = "2px solid rgb(0 128 0)";
             event.target.style.boxShadow                                            = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
-
-            this.activate_button()
         } else {
             event.target.parentElement.querySelector(".label__email").style.display = "flex";
             event.target.style.boxShadow                                            = "none";
             event.target.style.border                                               = "1px solid #D0D5DD";
         }
+        this.activate_button()
+
     }
     printError = () => {
         let match_check = this.input_password.value.length >= 8 && this.input_confirm.value.length >= 8 ?
@@ -72,8 +70,6 @@ export class Form{
 
             this.input_confirm.style.border     = "2px solid rgb(0 128 0)";
             this.input_confirm.style.boxShadow = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
-
-            this.activate_button()
         }else if(!this.input_confirm.value.length){
             document.querySelector(".label__confirmPassword").style.display = "none";
         }else{
@@ -85,6 +81,8 @@ export class Form{
             this.input_confirm.style.boxShadow = "none";
             this.input_confirm.style.border  = "1px solid #D0D5DD";
         }
+        this.activate_button()
+
     }
     fullness_check_password(event){
         document.querySelector(".label__password").style.display = "flex";
