@@ -40,11 +40,9 @@ export class Form{
     }
     login_verification = (event) => {
         if(!event.target.value.length){
-            event.target.style.boxShadow = "none";
-            event.target.style.border    = "1px solid #D0D5DD";
+            event.target.classList.remove("correct__data")
         }else{
-            event.target.style.border    = "2px solid rgb(0 128 0)";
-            event.target.style.boxShadow = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
+            event.target.classList.add("correct__data")
         }
         this.activate_button()
     }
@@ -53,12 +51,10 @@ export class Form{
         const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
         if (EMAIL_REGEXP.test(event.target.value)) {
             event.target.parentElement.querySelector(".label__email").style.display = "none";
-            event.target.style.border                                               = "2px solid rgb(0 128 0)";
-            event.target.style.boxShadow                                            = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
+            event.target.classList.add("correct__data")
         } else {
             event.target.parentElement.querySelector(".label__email").style.display = "flex";
-            event.target.style.boxShadow                                            = "none";
-            event.target.style.border                                               = "1px solid #D0D5DD";
+            event.target.classList.remove("correct__data")
         }
         this.activate_button()
     }
@@ -68,21 +64,15 @@ export class Form{
         if (match_check){
             this.form_Wrapper.querySelector(".label__confirmPassword").style.display = "none";
 
-            this.input_password.style.border    = "2px solid rgb(0 128 0)";
-            this.input_password.style.boxShadow = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
-
-            this.input_confirm.style.border     = "2px solid rgb(0 128 0)";
-            this.input_confirm.style.boxShadow  = "rgba(0, 0, 0, 0.75) 0px 5px 15px";
+            this.input_password.classList.add("correct__data")
+            this.input_confirm.classList.add("correct__data")
         }else if(!this.input_confirm.value.length){
             this.form_Wrapper.querySelector(".label__confirmPassword").style.display = "none";
         }else{
             this.form_Wrapper.querySelector(".label__confirmPassword").style.display = "flex";
 
-            this.input_password.style.boxShadow = "none";
-            this.input_password.style.border = "1px solid #D0D5DD";
-
-            this.input_confirm.style.boxShadow = "none";
-            this.input_confirm.style.border  = "1px solid #D0D5DD";
+            this.input_password.classList.remove("correct__data")
+            this.input_confirm.classList.remove("correct__data")
         }
         this.activate_button()
 

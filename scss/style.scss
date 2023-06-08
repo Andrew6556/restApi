@@ -378,7 +378,10 @@
         width: 70px;
     }
 }
-// .
+.correct__data{
+    border: 1.8px solid rgb(33 103 1 / 39%);
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
+}
 .modalEntrance__btn {
     font-size: 20px;
     color: $clWhite;
