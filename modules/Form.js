@@ -10,7 +10,7 @@ export class Form{
         let event_list = ['keyup','keydown'];
 
         this.show_password()
-        
+
         event_list.map(event => this.form_Wrapper.querySelector(".input__login").addEventListener(event, this.login_verification))
         event_list.map(event => this.form_Wrapper.querySelector(".input__email").addEventListener(event, this.check_email))
         if (this.input_confirm){
@@ -33,7 +33,6 @@ export class Form{
                     event.target.closest(".form__password").querySelector(".password").type = "text";
                     event.target.closest(".form__password").querySelector(".form__passwordImg-item").src = "./img/icon/modal/eye.png"
                 }
-                
             })
         })
     }
@@ -53,9 +52,16 @@ export class Form{
         }
     }
     login_verification = (event) => {
+        let label_password = event.target.closest(".form__item_login").querySelector(".label__login");
+        
+        label_password.style.display = "flex";
         if(!event.target.value.length){
+            label_password.innerText = "Необходимо указать пароль";
+        }else if (!event.target.value.startsWith("@")){
+            label_password.innerText = "Логин должен начинаться символа @";
             event.target.classList.remove("correct__data")
         }else{
+            label_password.style.display = "none";
             event.target.classList.add("correct__data")
         }
         this.activate_button()

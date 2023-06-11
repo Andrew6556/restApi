@@ -13,18 +13,6 @@ let keyword_search = name => `http://kinopoiskapiunofficial.tech/api/v2.1/films/
     films          = `data/info_films.json`;
 
 
-// document.querySelectorAll(".form__passwordImg").forEach(password_img=>{
-//     password_img.addEventListener("click", (event) =>{
-//         if(event.target.closest(".form__password").querySelector(".password").type == "text"){
-//             event.target.closest(".form__password").querySelector(".password").type = "password";
-//             event.target.closest(".form__password").querySelector(".form__passwordImg-item").src = "./img/icon/modal/hide.png"
-//         }else{
-//             event.target.closest(".form__password").querySelector(".password").type = "text";
-//             event.target.closest(".form__password").querySelector(".form__passwordImg-item").src = "./img/icon/modal/eye.png"
-//         }
-        
-//     })
-// })
 
 document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
     button.addEventListener("click", function (event){
@@ -45,9 +33,6 @@ document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
 // console.log(document.querySelectorAll(".form"))
 document.querySelectorAll(".form").forEach(item =>{
     let form = new Form(item);
-    // console.log(modal)
-    // andre.kozloff@gmail.com
-    // console.log(form.form_Wrapper)
     form.form_Wrapper.addEventListener("submit", (link) =>{
         link.preventDefault();
         console.log(11111111)

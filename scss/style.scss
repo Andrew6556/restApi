@@ -337,6 +337,29 @@
             padding:8px 10px 8px 10px;
         }
     }
+    .form__item_login{
+        position: relative;
+    }
+    .label__login{
+        display: flex;
+        z-index: 1000;
+        position: absolute;
+        left: 101%;
+        top: 15%;
+        color: #f0f4f8;
+        background: #ff0000c2;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        border-radius: 15px;
+        padding: 10px;
+        &::before{
+            content: "";
+            background: url("../img/icon/searchBox/left-arrow.png")left no-repeat;
+            object-fit: cover;
+            padding:8px 10px 8px 10px;
+        }
+    }
     .label__confirmPassword{
         display: none;
         z-index: 1000;
