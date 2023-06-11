@@ -19,22 +19,6 @@ export class Header{
                 <div class="header__content container">
                     <div class="header__title title">Смотрите фильмы <br> на вашей любимой платформе</div>
                     <div class="header__wrapper">
-                        <div class="header__FactFilm">
-                            <div class="header__FactFilm-title">
-                                Интересные факты из <span class="header__logoDecor">КиноИндустрии</span>
-                            </div>
-                            <div class="header__FactFilm-content">
-                                <div class="FactLoading">
-                                    <span class="FactLoading__text">Мы подбираем интересный <br>факт для вас...</span>
-                                </div>
-                                <div class="header__FactFilm-text">
-
-                                </div>
-                                <p class="header__FactFilm-name">
-                                    
-                                </p>
-                            </div>
-                        </div>
                         <div class="header__films">
                             <div class="header__NothingFound header__NothingFound_active">Ничего не найдено</div>
                         </div>

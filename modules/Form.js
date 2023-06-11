@@ -4,7 +4,6 @@ export class Form{
     constructor(data){
         this.form_Wrapper   = data;
         this.input_password = this.form_Wrapper.querySelector('.input_password');
-
         this.input_confirm  = this.form_Wrapper.querySelector('.input_confirmPassword');
 
         let event_list = ['keyup','keydown'];
@@ -53,12 +52,14 @@ export class Form{
     }
     login_verification = (event) => {
         let label_password = event.target.closest(".form__item_login").querySelector(".label__login");
-        
+
         label_password.style.display = "flex";
         if(!event.target.value.length){
-            label_password.innerText = "Необходимо указать пароль";
+            label_password.innerText = "Данное поле не заполненно";
         }else if (!event.target.value.startsWith("@")){
             label_password.innerText = "Логин должен начинаться символа @";
+        }else if(event.target.value.length - 1 < 8){
+            label_password.innerText = "Логин должен состоять минимум из 8 символов";
             event.target.classList.remove("correct__data")
         }else{
             label_password.style.display = "none";
@@ -105,5 +106,13 @@ export class Form{
             label_password.style.display = "none";
             event.target.classList.add("correct__data")
         }
+    }
+    get_data(){
+        let input_value = Array.from(this.form_Wrapper.querySelectorAll(".form__input")).map(elem => {
+            return elem.value
+        });
+
+        input_value.splice(-1, 1)
+        return input_value
     }
 }
