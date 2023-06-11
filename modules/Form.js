@@ -9,6 +9,8 @@ export class Form{
 
         let event_list = ['keyup','keydown'];
 
+        this.show_password()
+        
         event_list.map(event => this.form_Wrapper.querySelector(".input__login").addEventListener(event, this.login_verification))
         event_list.map(event => this.form_Wrapper.querySelector(".input__email").addEventListener(event, this.check_email))
         if (this.input_confirm){
@@ -20,6 +22,20 @@ export class Form{
         }else{
             event_list.map(event => this.input_password.addEventListener(event, this.fullness_check_password))
         }
+    }
+    show_password(){
+        this.form_Wrapper.querySelectorAll(".form__passwordImg").forEach(password_img=>{
+            password_img.addEventListener("click", (event) =>{
+                if(event.target.closest(".form__password").querySelector(".password").type == "text"){
+                    event.target.closest(".form__password").querySelector(".password").type = "password";
+                    event.target.closest(".form__password").querySelector(".form__passwordImg-item").src = "./img/icon/modal/hide.png"
+                }else{
+                    event.target.closest(".form__password").querySelector(".password").type = "text";
+                    event.target.closest(".form__password").querySelector(".form__passwordImg-item").src = "./img/icon/modal/eye.png"
+                }
+                
+            })
+        })
     }
     activate_button(){
         let inputs   = Array.from(this.form_Wrapper.querySelectorAll(".form__input")),
@@ -56,7 +72,6 @@ export class Form{
         this.activate_button()
     }
     password_confirmation_check = () =>{
-        console.log(this.input_password)
         let match_check    = this.input_password.value.length >= 8 && this.input_confirm.value.length >= 8 ?
                                                 this.input_confirm.value == this.input_password.value: false;
 
@@ -71,16 +86,15 @@ export class Form{
             this.input_confirm.classList.remove("correct__data")
         }
         this.activate_button()
-
     }
     fullness_check_password(event){
         let label_password = event.target.closest(".form__item_password").querySelector(".label__password");
         label_password.style.display = "flex";
         if (!event.target.value.length){
             label_password.innerText = "Необходимо указать пароль";
-            event.target.classList.remove("correct__data")
         }else if(event.target.value.length < 8){
             label_password.innerText = "Пароль должен содержать не менее 8 символов";
+            event.target.classList.remove("correct__data")
         }else{
             label_password.style.display = "none";
             event.target.classList.add("correct__data")
