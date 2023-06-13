@@ -16,6 +16,10 @@ export class Header{
                             <div class="header__filterImg">
                                 <img class="header__filterImg-item" src="./img/icon/down-arrow.png" alt="arrow">
                             </div>
+                            <ul class="header__filterMenu form__active">
+                                <li class="header__filterMenu-item header__filterMenu-item_growth">По возрастанию</li>
+                                <li class="header__filterMenu-item header__filterMenu-item_decrease">По убыванию</li>
+                            </ul>
                         </div>
                         <div class="header__group modalEntrance__group">
                             <button class="header__SignUp btn header__group_choice title">Sign Up</button>

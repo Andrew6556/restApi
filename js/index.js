@@ -94,7 +94,7 @@ document.querySelectorAll(".header__group_choice").forEach(button => {
 async function create_slider(){
     let response_films = await fetch(path_films, options),
         initial_films  = await response_films.json();
-        
+
     return function(sorted=false){
         let div_cards = initial_films.films.map(film  => new Card(film).wrapper);
         sorted ? div_cards:div_cards.sort((card_one, card_two) => {
@@ -106,18 +106,40 @@ async function create_slider(){
     
 }
 
-create_slider().then(data=>{
+let cl = create_slider();
+
+cl.then(data=>{
     data()
 })
+document.querySelector(".header__filter").addEventListener("mouseover", (event) =>{
+    document.querySelector(".header__filterMenu").classList.remove("form__active");
+    console.log(event.target)
+    if (event.target.classList.contains("header__filterMenu-item")){
+        event.target.addEventListener("click",(event) =>{
+            if (event.target.classList.contains("header__filterMenu-item_growth")){
+                document.querySelector(".slider").remove()
+                cl.then(data=>{
+                    data()
+                })
+            }else{
+                document.querySelector(".slider").remove()
+                cl.then(data=>{
+                    data(true)
+                })
+            }
+        })
+    }
+})
+document.querySelector(".header__filterMenu").addEventListener("mouseout",  (event) =>{
+    document.querySelector(".header__filterMenu").classList.add("form__active");
+});
+
 
 
 async function c(){
     let r = await fetch("http://kinopoiskapiunofficial.tech/api/v2.2/films/326", options);
     let q = await r.json();
     console.log(q)
-    // "http://kinopoiskapiunofficial.tech/api/v1/staff/435"
-    // /api/v1/persons
-    // console.log(q.films[0].genres.map(item => item.genre).join(", "))
 }
 c()
 
