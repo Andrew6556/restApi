@@ -21,6 +21,15 @@
 .container{
     @include container(1200px)
 }
+.btn{
+    font-size: 18px;
+    color: #ffffff;
+    padding: 12px;
+    width: 100px;
+    margin: 0 5px;
+    border-radius:10px;
+    transition:all 800ms ease-in-out 0s;
+}
 // block
 .header{
     height: 105vh;
@@ -31,8 +40,19 @@
         padding: 12px 0;
         color: $clWhite;
     }
-    button{
-        width: 150px;
+    &__SignUp{
+        color: black;
+        background: #248C46;
+        &:hover{
+            color: $clWhite;
+            background: #2fcd64d1;
+        }
+    }
+    &__logIn{
+        background: #5a5f73d0;
+        &:hover{
+            background: #666a7cd0;
+        }
     }
     &__topContent{
         display: flex;
@@ -95,34 +115,11 @@
         justify-content: space-around;
         align-items: center;
     }
-    &__btn{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-        width: 150px;
-        padding: 8px 0px ;
-        transition: all 1s ease-out 0s;
-        font-size: 18px;    
-        color:$clGrey;
-        &::after{
-            content:"";
-            display: flex;
-            align-self: center;
-            color: $clWhite;
-            background: url("../img/icon/arrow.svg") no-repeat center right;
-            padding: 8px;
-            padding-left: 15px;
-        }
-    }
 }
 
 // setting modal
 .modalEntrance{
     background: rgba(0, 0, 0, 0.915);
-
-}
-.modalEntrance{
     &__content{
         width: 450px;
         background: $clWhite;

@@ -26,6 +26,7 @@ document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
     })
 })
 
+
 // console.log(document.querySelectorAll(".form"))
 document.querySelectorAll(".form").forEach(item =>{
     let form = new Form(item);
@@ -71,7 +72,20 @@ document.querySelector(".wrapper").appendChild(header);
 
 document.querySelector(".modal__close").addEventListener("click", () =>{
     document.querySelector(".modalEntrance").classList.toggle("active")
+    document.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
 })
+document.querySelectorAll(".header__group_choice").forEach(button => {
+    button.addEventListener("click", function (){
+        document.querySelector(".modalEntrance").classList.toggle("active")
+        if(button.classList.contains("header__SignUp")){
+            document.querySelector(".modalEntrance__SignUp").classList.add("modalEntrance__group_active")
+        }else{
+            document.querySelector(".modalEntrance__logIn").classList.add("modalEntrance__group_active")
+        }
+    })
+})
+
+
 // document.querySelector
 
 // document.querySelector(".form").addEventListener("submit", async function(link){

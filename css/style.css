@@ -175,6 +175,16 @@ h1, h2, h3, h4, h5, h6 {
   width: 96%;
 }
 
+.btn {
+  font-size: 18px;
+  color: #ffffff;
+  padding: 12px;
+  width: 100px;
+  margin: 0 5px;
+  border-radius: 10px;
+  transition: all 800ms ease-in-out 0s;
+}
+
 .header {
   height: 105vh;
   background: #2C2C55;
@@ -185,8 +195,19 @@ h1, h2, h3, h4, h5, h6 {
   padding: 12px 0;
   color: white;
 }
-.header button {
-  width: 150px;
+.header__SignUp {
+  color: black;
+  background: #248C46;
+}
+.header__SignUp:hover {
+  color: white;
+  background: rgba(47, 205, 100, 0.8196078431);
+}
+.header__logIn {
+  background: rgba(90, 95, 115, 0.8156862745);
+}
+.header__logIn:hover {
+  background: rgba(102, 106, 124, 0.8156862745);
 }
 .header__topContent {
   display: flex;
@@ -244,31 +265,10 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-around;
   align-items: center;
 }
-.card__btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  width: 150px;
-  padding: 8px 0px;
-  transition: all 1s ease-out 0s;
-  font-size: 18px;
-  color: rgba(253, 253, 253, 0.712);
-}
-.card__btn::after {
-  content: "";
-  display: flex;
-  align-self: center;
-  color: white;
-  background: url("../img/icon/arrow.svg") no-repeat center right;
-  padding: 8px;
-  padding-left: 15px;
-}
 
 .modalEntrance {
   background: rgba(0, 0, 0, 0.915);
 }
-
 .modalEntrance__content {
   width: 450px;
   background: white;
