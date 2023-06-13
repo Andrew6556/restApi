@@ -8,7 +8,7 @@ export class Form{
 
         let event_list = ['keyup','keydown'];
 
-        this.show_password()
+        this.show_password();
 
         event_list.map(event => this.form_Wrapper.querySelector(".input__login").addEventListener(event, this.login_verification))
         event_list.map(event => this.form_Wrapper.querySelector(".input__email").addEventListener(event, this.check_email))

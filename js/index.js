@@ -61,7 +61,7 @@ document.querySelectorAll(".form").forEach(item =>{
 
 let options = {
     headers: {
-        'X-API-KEY': '4ed6a4de-1c65-48b4-9d9b-922f9cfbd78e',
+        'X-API-KEY': '4dc0fb6b-92e7-4e5d-b3c6-960b4ce6443d',
         'Content-Type': 'application/json; charset=UTF-8',
     }
 }
@@ -79,50 +79,36 @@ document.querySelectorAll(".header__group_choice").forEach(button => {
         document.querySelector(".modalEntrance").classList.toggle("active")
         if(button.classList.contains("header__SignUp")){
             document.querySelector(".modalEntrance__SignUp").classList.add("modalEntrance__group_active")
+            
+            document.querySelector('.form__SignUp').classList.remove("form__active")
+            document.querySelector('.form__LogIn').classList.add("form__active")
         }else{
             document.querySelector(".modalEntrance__logIn").classList.add("modalEntrance__group_active")
+
+            document.querySelector('.form__SignUp').classList.add("form__active")
+            document.querySelector('.form__LogIn').classList.remove("form__active")
         }
     })
 })
 
-
-// document.querySelector
-
-// document.querySelector(".form").addEventListener("submit", async function(link){
-//     link.preventDefault();
-//     let value_search = this.querySelector(".header__searchBox").value;
-        
-//     let result_search = await fetch(keyword_search(value_search), options),
-//         found_movies  = await result_search.json();
-        
-//     if (found_movies.films.length != 0){
-//         document.querySelector(".header__NothingFound").classList.add("header__NothingFound_active")
-//         if(document.querySelector(".slider") != null){
-//             document.querySelector(".slider").remove()
-//         }
-//         create_slider(films_videos, films_img, keyword_search(value_search))
-//             .then(div_cards => document.querySelector(".header__films").appendChild(new Slider(div_cards).wrapper))
-
-//     }else{
-//         document.querySelector(".slider").remove()
-//         document.querySelector(".header__NothingFound").classList.remove("header__NothingFound_active")
-//     }
-// })
-
-async function create_slider(sorted=true){
+async function create_slider(){
     let response_films = await fetch(path_films, options),
         initial_films  = await response_films.json();
-
-    let div_cards = initial_films.films.map(film  => new Card(film).wrapper);
-    if (sorted){
-        div_cards.sort((card_one, card_two) => {
-            return +card_one.querySelector(".card__viewer-rating").innerText - +card_two.querySelector(".card__viewer-rating").innerText
-        })
-    }   
-    document.querySelector(".header__wrapper").appendChild(new Slider(div_cards).wrapper)
+        
+    return function(sorted=false){
+        let div_cards = initial_films.films.map(film  => new Card(film).wrapper);
+        sorted ? div_cards:div_cards.sort((card_one, card_two) => {
+            return (+card_one.querySelector(".card__viewer-rating").innerText -
+                +card_two.querySelector(".card__viewer-rating").innerText)
+            })
+        document.querySelector(".header__wrapper").appendChild(new Slider(div_cards).wrapper)
+    }
+    
 }
 
-create_slider()
+create_slider().then(data=>{
+    data()
+})
 
 
 async function c(){

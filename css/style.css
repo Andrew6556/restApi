@@ -211,6 +211,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .header__topContent {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 .header__logo {
@@ -220,6 +221,28 @@ h1, h2, h3, h4, h5, h6 {
 .header__logoDecor {
   color: #bf00ff;
   font-weight: 500;
+}
+.header__filter {
+  cursor: pointer;
+  transition: all 500ms ease-in-out 0s;
+}
+.header__filter:hover {
+  color: #bf00ff;
+}
+.header__filterText {
+  font-size: 18px;
+}
+.header__filterImg {
+  width: 10px;
+  align-self: flex-end;
+  margin-left: 5px;
+}
+.header__filter {
+  display: flex;
+  align-items: center;
+}
+.header__content {
+  clear: both;
 }
 .header__title {
   color: white;
