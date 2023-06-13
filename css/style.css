@@ -254,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 .header__filterMenu-item:hover {
-  color: #248C46;
+  color: #bf00ff;
 }
 .header__filterMenu-item:not(:last-child) {
   margin-bottom: 8px;

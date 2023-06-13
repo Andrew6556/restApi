@@ -97,7 +97,7 @@
             font-size: 16px;
             cursor: pointer;
             &:hover{
-                color: #248C46;
+                color: $clPurple;
             }
             &:not(:last-child){
                 margin-bottom: 8px;

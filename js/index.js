@@ -104,7 +104,7 @@ async function create_slider(){
         // получаем divs на основе полученной информации о фильмах
         let div_cards = initial_films.films.map(film  => new Card(film).wrapper);
 
-        //Если надо сортируем фильмы: 1. По убыванию 2. По возрастанию
+        //Если надо сортируем фильмы: 1.По убыванию 2.По возрастанию
         sorted ? div_cards:div_cards.sort((card_one, card_two) => {
             return (+card_one.querySelector(".card__viewer-rating").innerText -
                 +card_two.querySelector(".card__viewer-rating").innerText)
@@ -117,20 +117,22 @@ async function create_slider(){
 
 document.querySelector(".header__filter").addEventListener("mouseover", (event) =>{
     document.querySelector(".header__filterMenu").classList.remove("form__active");
-    console.log(event.target)
     if (event.target.classList.contains("header__filterMenu-item")){
+        // При клике создаем слайдер на основе выбранного пункта сортировки
         event.target.addEventListener("click",(event) =>{
+            // удаляем начальный слайдер на странице
+            document.querySelector(".slider").remove()
             if (event.target.classList.contains("header__filterMenu-item_growth")){
-                document.querySelector(".slider").remove()
-                slider.then(data=> data())
+                slider.then(data => data())
             }else{
-                document.querySelector(".slider").remove()
-                slider.then(data=> data(true))
+                slider.then(data => data(true))
             }
         })
     }
 })
+
 document.querySelector(".header__filterMenu").addEventListener("mouseout",  (event) =>{
+    //при отводе мышки от меню убираем выпадающие menu
     document.querySelector(".header__filterMenu").classList.add("form__active");
 });
 
