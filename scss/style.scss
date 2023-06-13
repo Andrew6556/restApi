@@ -5,150 +5,58 @@
 
 
 
-.container{
-    @include container(1200px)
-}
+
+
 .form__active{
     display: none;
 }
-.FactLoading{
-    margin-top:25%;
-    &__text{
-        font-size: 30px;
-        line-height: 23px;
-        animation: circle 1.8s cubic-bezier(0.06, -0.09, 0.89, 0.26) infinite normal running 0s none;
-    }
-    &_active{
-        display: none;
-    }
+.correct__data{
+    border: 2px solid rgb(15 82 118 / 47%);
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
 }
-
-@keyframes circle{
-    0%{
-        color: black;
-    }
-    100%{
-        color: white;
-    }   
-}
+// .block
 .title{
     text-align: center;
 }
-// header__NothingFound
-.header__NothingFound{
-    display: flex;
-    align-items: center;
-    color: rgba(255, 0, 0, 0.774);
-    font-size: 30px;
-    animation: NothingFound 1.5s cubic-bezier(0.06, -0.09, 0.89, 0.26) infinite normal running 0s none;
-    &_active{
-        display: none;
-    }
-}
-@keyframes NothingFound{
-    0%{
-        color: rgba(255, 0, 0, 0.774);
-    }
-    100%{
-        color: black;
-    }   
+.container{
+    @include container(1200px)
 }
 // block
-.header {
+.header{
     height: 105vh;
     background: #2C2C55;
     &__top {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         background: #222228CC;
-        display: flex;
-        align-items: center;
         padding: 12px 0;
         color: $clWhite;
     }
-    &__topContent {
-        @extend %flex-center;
+    button{
+        width: 150px;
+    }
+    &__topContent{
+        display: flex;
         justify-content: space-between;
-        
     }
     &__logo {
         font-size: 22px;
         line-height: 25px;
     }
-    &__logoDecor{
-        display: flex;
-        justify-content: center;
+    &__logoDecor {
         color: $clPurple;
         font-weight: 500;
     }
-    .form{
-        width: 400px;
-        display: flex;
-        background: $clWhite;
-        box-shadow: rgb(153, 35, 72) 0px 30px 90px;
-        border-radius: 50px;
-        height: 40px;
-        &__btn{
-            display: flex;
-            align-self: center;
-            padding-right: 20px;
-        }
+    &__content {
     }
-    &__searchBox {
-        font-size: 18px;
-        color:black;
-        width: 100%;
-        height: 100%;
-        border-radius: 50px;
-        transition: all 500ms ease;
-        padding: 0 25px;
-        &::placeholder{
-            color: gray;
-        }
-    }
-    &__films{
-        display: flex;
-    }
-    &__content{
-        margin-top: 10px;
-    }
-    &__title{
+    &__title {
         color: $clWhite;
         font-size: 36px;
         margin-bottom: 10px;
     }
     &__wrapper {
-        @extend %fl-wr-spBetween;
-        justify-content: center;
-    }
-    &__FactFilm {
-        width: 450px;
-        height: 450px;
-        background: linear-gradient(109.69deg, rgba(29, 66, 162, 0.6) 12.26%, rgba(53, 72, 222, 0.6) 49.27%, rgba(0, 0, 0, 0.6) 65.36%, rgba(255, 0, 79, 0.6) 87.89%, rgba(73, 49, 71, 0.6) 115.24%);
-        margin-right: 20px;
-        border-radius: 20px;
-        padding: 30px;
-        color: $clWhite;
-        text-align: center;
-        &-title{
-            font-size: 30px;
-            margin-bottom: 30px;
-        }
-        &-content{
-            line-height: 18px;
-            font-size: 20px;
-        }
-        &-text{
-            color: $clGrey;
-        }
-    }
-    &__films{
-        width: 450px;
-        height: 450px;
-        display: flex;
-        justify-content: center;
+        @extend %flex-center;
     }
 }
-
 .card{
     max-width: 450px;
     height: 450px;
@@ -295,90 +203,22 @@
         position: relative;
     }
     .label__password{
-        display: none;
-        z-index: 1000;
-        position: absolute;
-        left: 101%;
-        top: 15%;
-        color: #f0f4f8;
-        background: #ff0000c2;
-        align-items: center;
-        justify-content: center;
-        white-space: nowrap;
-        border-radius: 15px;
-        padding: 10px;
-        &::before{
-            content: "";
-            background: url("../img/icon/searchBox/left-arrow.png")left no-repeat;
-            object-fit: cover;
-            padding:8px 10px 8px 10px;
-        }
+        @extend %formError;
     }
     .form__item_email{
         position: relative;
     }
     .label__email{
-        display: none;
-        z-index: 1000;
-        position: absolute;
-        left: 101%;
-        top: 15%;
-        color: #f0f4f8;
-        background: #ff0000c2;
-        align-items: center;
-        justify-content: center;
-        white-space: nowrap;
-        border-radius: 15px;
-        padding: 10px;
-        &::before{
-            content: "";
-            background: url("../img/icon/searchBox/left-arrow.png")left no-repeat;
-            object-fit: cover;
-            padding:8px 10px 8px 10px;
-        }
+        @extend %formError;
     }
     .form__item_login{
         position: relative;
     }
     .label__login{
-        display: none;
-        z-index: 1000;
-        position: absolute;
-        left: 101%;
-        top: 15%;
-        color: #f0f4f8;
-        background: #ff0000c2;
-        align-items: center;
-        justify-content: center;
-        white-space: nowrap;
-        border-radius: 15px;
-        padding: 10px;
-        &::before{
-            content: "";
-            background: url("../img/icon/searchBox/left-arrow.png")left no-repeat;
-            object-fit: cover;
-            padding:8px 10px 8px 10px;
-        }
+        @extend %formError;
     }
     .label__confirmPassword{
-        display: none;
-        z-index: 1000;
-        position: absolute;
-        left: 101%;
-        top: 15%;
-        color: #f0f4f8;
-        background: #ff0000c2;
-        align-items: center;
-        justify-content: center;
-        white-space: nowrap;
-        border-radius: 15px;
-        padding: 10px;
-        &::before{
-            content: "";
-            background: url("../img/icon/searchBox/left-arrow.png")left no-repeat;
-            object-fit: cover;
-            padding:8px 10px 8px 10px;
-        }
+        @extend %formError;
     }
     &__password{
         position: relative;
@@ -401,10 +241,7 @@
         width: 70px;
     }
 }
-.correct__data{
-    border: 2px solid rgb(15 82 118 / 47%);
-    box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
-}
+
 .modalEntrance__btn {
     font-size: 20px;
     color: $clWhite;

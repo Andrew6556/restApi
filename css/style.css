@@ -79,16 +79,38 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
 }
 
-.card__wrapper, .header__wrapper {
+.card__wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.header__topContent {
+.header__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.form .label__confirmPassword, .form .label__login, .form .label__email, .form .label__password {
+  display: none;
+  z-index: 1000;
+  position: absolute;
+  left: 101%;
+  top: 15%;
+  color: #f0f4f8;
+  background: rgba(255, 0, 0, 0.7607843137);
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 15px;
+  padding: 10px;
+}
+.form .label__confirmPassword::before, .form .label__login::before, .form .label__email::before, .form .label__password::before {
+  content: "";
+  background: url("../img/icon/searchBox/left-arrow.png") left no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 8px 10px 8px 10px;
 }
 
 /* modal */
@@ -134,59 +156,25 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
 }
 
+.form__active {
+  display: none;
+}
+
+.correct__data {
+  border: 2px solid rgba(15, 82, 118, 0.47);
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
+}
+
+.title {
+  text-align: center;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   width: 96%;
 }
 
-.form__active {
-  display: none;
-}
-
-.FactLoading {
-  margin-top: 25%;
-}
-.FactLoading__text {
-  font-size: 30px;
-  line-height: 23px;
-  animation: circle 1.8s cubic-bezier(0.06, -0.09, 0.89, 0.26) infinite normal running 0s none;
-}
-.FactLoading_active {
-  display: none;
-}
-
-@keyframes circle {
-  0% {
-    color: black;
-  }
-  100% {
-    color: white;
-  }
-}
-.title {
-  text-align: center;
-}
-
-.header__NothingFound {
-  display: flex;
-  align-items: center;
-  color: rgba(255, 0, 0, 0.774);
-  font-size: 30px;
-  animation: NothingFound 1.5s cubic-bezier(0.06, -0.09, 0.89, 0.26) infinite normal running 0s none;
-}
-.header__NothingFound_active {
-  display: none;
-}
-
-@keyframes NothingFound {
-  0% {
-    color: rgba(255, 0, 0, 0.774);
-  }
-  100% {
-    color: black;
-  }
-}
 .header {
   height: 105vh;
   background: #2C2C55;
@@ -194,12 +182,14 @@ h1, h2, h3, h4, h5, h6 {
 .header__top {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background: rgba(34, 34, 40, 0.8);
-  display: flex;
-  align-items: center;
   padding: 12px 0;
   color: white;
 }
+.header button {
+  width: 150px;
+}
 .header__topContent {
+  display: flex;
   justify-content: space-between;
 }
 .header__logo {
@@ -207,81 +197,14 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 25px;
 }
 .header__logoDecor {
-  display: flex;
-  justify-content: center;
   color: #bf00ff;
   font-weight: 500;
-}
-.header .form {
-  width: 400px;
-  display: flex;
-  background: white;
-  box-shadow: rgb(153, 35, 72) 0px 30px 90px;
-  border-radius: 50px;
-  height: 40px;
-}
-.header .form__btn {
-  display: flex;
-  align-self: center;
-  padding-right: 20px;
-}
-.header__searchBox {
-  font-size: 18px;
-  color: black;
-  width: 100%;
-  height: 100%;
-  border-radius: 50px;
-  transition: all 500ms ease;
-  padding: 0 25px;
-}
-.header__searchBox::-moz-placeholder {
-  color: gray;
-}
-.header__searchBox::placeholder {
-  color: gray;
-}
-.header__films {
-  display: flex;
-}
-.header__content {
-  margin-top: 10px;
 }
 .header__title {
   color: white;
   font-size: 36px;
   margin-bottom: 10px;
 }
-.header__wrapper {
-  justify-content: center;
-}
-.header__FactFilm {
-  width: 450px;
-  height: 450px;
-  background: linear-gradient(109.69deg, rgba(29, 66, 162, 0.6) 12.26%, rgba(53, 72, 222, 0.6) 49.27%, rgba(0, 0, 0, 0.6) 65.36%, rgba(255, 0, 79, 0.6) 87.89%, rgba(73, 49, 71, 0.6) 115.24%);
-  margin-right: 20px;
-  border-radius: 20px;
-  padding: 30px;
-  color: white;
-  text-align: center;
-}
-.header__FactFilm-title {
-  font-size: 30px;
-  margin-bottom: 30px;
-}
-.header__FactFilm-content {
-  line-height: 18px;
-  font-size: 20px;
-}
-.header__FactFilm-text {
-  color: rgba(253, 253, 253, 0.712);
-}
-.header__films {
-  width: 450px;
-  height: 450px;
-  display: flex;
-  justify-content: center;
-}
-
 .card {
   max-width: 450px;
   height: 450px;
@@ -427,95 +350,11 @@ h1, h2, h3, h4, h5, h6 {
 .form__item_password {
   position: relative;
 }
-.form .label__password {
-  display: none;
-  z-index: 1000;
-  position: absolute;
-  left: 101%;
-  top: 15%;
-  color: #f0f4f8;
-  background: rgba(255, 0, 0, 0.7607843137);
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  border-radius: 15px;
-  padding: 10px;
-}
-.form .label__password::before {
-  content: "";
-  background: url("../img/icon/searchBox/left-arrow.png") left no-repeat;
-  -o-object-fit: cover;
-     object-fit: cover;
-  padding: 8px 10px 8px 10px;
-}
 .form .form__item_email {
   position: relative;
 }
-.form .label__email {
-  display: none;
-  z-index: 1000;
-  position: absolute;
-  left: 101%;
-  top: 15%;
-  color: #f0f4f8;
-  background: rgba(255, 0, 0, 0.7607843137);
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  border-radius: 15px;
-  padding: 10px;
-}
-.form .label__email::before {
-  content: "";
-  background: url("../img/icon/searchBox/left-arrow.png") left no-repeat;
-  -o-object-fit: cover;
-     object-fit: cover;
-  padding: 8px 10px 8px 10px;
-}
 .form .form__item_login {
   position: relative;
-}
-.form .label__login {
-  display: none;
-  z-index: 1000;
-  position: absolute;
-  left: 101%;
-  top: 15%;
-  color: #f0f4f8;
-  background: rgba(255, 0, 0, 0.7607843137);
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  border-radius: 15px;
-  padding: 10px;
-}
-.form .label__login::before {
-  content: "";
-  background: url("../img/icon/searchBox/left-arrow.png") left no-repeat;
-  -o-object-fit: cover;
-     object-fit: cover;
-  padding: 8px 10px 8px 10px;
-}
-.form .label__confirmPassword {
-  display: none;
-  z-index: 1000;
-  position: absolute;
-  left: 101%;
-  top: 15%;
-  color: #f0f4f8;
-  background: rgba(255, 0, 0, 0.7607843137);
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  border-radius: 15px;
-  padding: 10px;
-}
-.form .label__confirmPassword::before {
-  content: "";
-  background: url("../img/icon/searchBox/left-arrow.png") left no-repeat;
-  -o-object-fit: cover;
-     object-fit: cover;
-  padding: 8px 10px 8px 10px;
 }
 .form__password {
   position: relative;
@@ -536,11 +375,6 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   bottom: 0;
   width: 70px;
-}
-
-.correct__data {
-  border: 2px solid rgba(15, 82, 118, 0.47);
-  box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
 }
 
 .modalEntrance__btn {

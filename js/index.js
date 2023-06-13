@@ -72,78 +72,55 @@ document.querySelector(".wrapper").appendChild(header);
 document.querySelector(".modal__close").addEventListener("click", () =>{
     document.querySelector(".modalEntrance").classList.toggle("active")
 })
+// document.querySelector
 
-
-document.querySelector(".form").addEventListener("submit", async function(link){
-    link.preventDefault();
-    let value_search = this.querySelector(".header__searchBox").value;
+// document.querySelector(".form").addEventListener("submit", async function(link){
+//     link.preventDefault();
+//     let value_search = this.querySelector(".header__searchBox").value;
         
-    let result_search = await fetch(keyword_search(value_search), options),
-        found_movies  = await result_search.json();
+//     let result_search = await fetch(keyword_search(value_search), options),
+//         found_movies  = await result_search.json();
         
-    if (found_movies.films.length != 0){
-        document.querySelector(".header__NothingFound").classList.add("header__NothingFound_active")
-        if(document.querySelector(".slider") != null){
-            document.querySelector(".slider").remove()
-        }
-        create_slider(films_videos, films_img, keyword_search(value_search))
-            .then(div_cards => document.querySelector(".header__films").appendChild(new Slider(div_cards).wrapper))
+//     if (found_movies.films.length != 0){
+//         document.querySelector(".header__NothingFound").classList.add("header__NothingFound_active")
+//         if(document.querySelector(".slider") != null){
+//             document.querySelector(".slider").remove()
+//         }
+//         create_slider(films_videos, films_img, keyword_search(value_search))
+//             .then(div_cards => document.querySelector(".header__films").appendChild(new Slider(div_cards).wrapper))
 
-    }else{
-        document.querySelector(".slider").remove()
-        document.querySelector(".header__NothingFound").classList.remove("header__NothingFound_active")
-    }
-})
+//     }else{
+//         document.querySelector(".slider").remove()
+//         document.querySelector(".header__NothingFound").classList.remove("header__NothingFound_active")
+//     }
+// })
 
-async function create_slider(path_trailer, path_img, path_films){
+async function create_slider(sorted=true){
     let response_films = await fetch(path_films, options),
         initial_films  = await response_films.json();
 
-    let div_card = initial_films.films.map(film  => new Card(film).wrapper);
-
-    div_card.forEach(card => {
-        card.querySelector(".card__btn").addEventListener("click", async (event) => {
-            let div_title = event.target.closest(".card").querySelector(".card__title").innerText,
-                film_year = event.target.closest(".card").querySelector(".card__year").innerText,
-                card_info = initial_films.films.find(film => film.nameRu == div_title && film.year == film_year);
-                //нахождения того обьекта ,по которому был клик
-                let [response_trailer, response_pictures] = await Promise.all([
-                                fetch(path_trailer(card_info.filmId), options),
-                                fetch(path_img(card_info.filmId),     options)])
-
-                let movie_trailer = await response_trailer.json(),
-                    movie_picture = await response_pictures.json();
-                
-                adding_pictures_modal(movie_picture)
-                
-                document.querySelector(".modalFilm__title").innerText        = card_info.nameRu;
-                document.querySelector(".modalFilm__description").innerText  = card_info.description;
-                document.querySelector(".modalFilm__video-item").src         = get_working_link(movie_trailer);
+    let div_cards = initial_films.films.map(film  => new Card(film).wrapper);
+    if (sorted){
+        div_cards.sort((card_one, card_two) => {
+            return +card_one.querySelector(".card__viewer-rating").innerText - +card_two.querySelector(".card__viewer-rating").innerText
         })
-    })
-    return div_card
+    }   
+    document.querySelector(".header__wrapper").appendChild(new Slider(div_cards).wrapper)
 }
 
-
-create_slider(films_videos, films_img, films)
-    .then(div_cards => document.querySelector(".header__films").appendChild(new Slider(div_cards).wrapper))
+create_slider()
 
 
-// async function deduce_random_fact(){
-//     return await new Promise(resolve => setInterval(async function(){
-//         let get_data   = await fetch(path_facts, options),
-//             facts_films = await get_data.json();
+async function c(){
+    let r = await fetch("http://kinopoiskapiunofficial.tech/api/v2.2/films/326", options);
+    let q = await r.json();
+    console.log(q)
+    // "http://kinopoiskapiunofficial.tech/api/v1/staff/435"
+    // /api/v1/persons
+    // console.log(q.films[0].genres.map(item => item.genre).join(", "))
+}
+c()
 
-//         let rm_fact_index = mtRandom(0,facts_films.length - 1);
-//         resolve(get_formatted_fact(facts_films[rm_fact_index]))
-//     }, 1000));
-// }
-// deduce_random_fact().then(random_fact =>{
-//     if (random_fact){
-//         document.querySelector(".FactLoading").classList.add("FactLoading_active");
-//     }
-//     document.querySelector(".header__FactFilm-text").innerText = random_fact;
-// })
 
 
 

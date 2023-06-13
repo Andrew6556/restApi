@@ -13,7 +13,7 @@ export class Card{
                     <div class="card__wrapper">
                         <p class="card__text">Режиссер:<span class="card__decor">Классный</span></p>
                         <p class="card__text">Год выпуска:<span class="card__decor card__year">${data.year}</span></p>
-                        <p class="card__text">Оценка зрителей:<span class="card__decor">${data.rating}</span></p>
+                        <p class="card__text">Оценка зрителей:<span class="card__viewer-rating card__decor">${data.rating}</span></p>
                     </div>
                     <button class="card__btn btn">Узнать больше</button>
                 </div>`;
