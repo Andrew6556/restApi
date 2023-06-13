@@ -70,6 +70,9 @@ let options = {
 let header = new Header().wrapper;
 document.querySelector(".wrapper").appendChild(header);
 
+let slider = create_slider();
+slider.then(data => data())
+
 document.querySelector(".modal__close").addEventListener("click", () =>{
     document.querySelector(".modalEntrance").classList.toggle("active")
     document.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
@@ -92,11 +95,16 @@ document.querySelectorAll(".header__group_choice").forEach(button => {
 })
 
 async function create_slider(){
+    // Получаем 20 фильмов из кинопоиска
     let response_films = await fetch(path_films, options),
         initial_films  = await response_films.json();
 
+    // Используем замыкание!Чтоб не делать один и тот же запрос
     return function(sorted=false){
+        // получаем divs на основе полученной информации о фильмах
         let div_cards = initial_films.films.map(film  => new Card(film).wrapper);
+
+        //Если надо сортируем фильмы: 1. По убыванию 2. По возрастанию
         sorted ? div_cards:div_cards.sort((card_one, card_two) => {
             return (+card_one.querySelector(".card__viewer-rating").innerText -
                 +card_two.querySelector(".card__viewer-rating").innerText)
@@ -106,11 +114,7 @@ async function create_slider(){
     
 }
 
-let cl = create_slider();
 
-cl.then(data=>{
-    data()
-})
 document.querySelector(".header__filter").addEventListener("mouseover", (event) =>{
     document.querySelector(".header__filterMenu").classList.remove("form__active");
     console.log(event.target)
@@ -118,14 +122,10 @@ document.querySelector(".header__filter").addEventListener("mouseover", (event) 
         event.target.addEventListener("click",(event) =>{
             if (event.target.classList.contains("header__filterMenu-item_growth")){
                 document.querySelector(".slider").remove()
-                cl.then(data=>{
-                    data()
-                })
+                slider.then(data=> data())
             }else{
                 document.querySelector(".slider").remove()
-                cl.then(data=>{
-                    data(true)
-                })
+                slider.then(data=> data(true))
             }
         })
     }

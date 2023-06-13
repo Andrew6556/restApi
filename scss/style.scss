@@ -51,7 +51,7 @@
     &__logIn{
         background: #5a5f73d0;
         &:hover{
-            background: #666a7cd0;
+            background: #666a7cfa;
         }
     }
     &__topContent{
@@ -91,9 +91,6 @@
         bottom: -90px;
         padding: 15px;
         border-radius: 10px;
-        &:hover{
-            color: none;
-        }
         &-item {
             color: black;
             font-weight: 500;
@@ -112,8 +109,7 @@
         align-items: center;
     }
     &__content {
-        clear: both;
-        // 11111111111111111111
+        
     }
     &__title {
         color: $clWhite;

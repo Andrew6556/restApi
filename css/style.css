@@ -207,7 +207,7 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(90, 95, 115, 0.8156862745);
 }
 .header__logIn:hover {
-  background: rgba(102, 106, 124, 0.8156862745);
+  background: rgba(102, 106, 124, 0.9803921569);
 }
 .header__topContent {
   display: flex;
@@ -247,9 +247,6 @@ h1, h2, h3, h4, h5, h6 {
   padding: 15px;
   border-radius: 10px;
 }
-.header__filterMenu:hover {
-  color: none;
-}
 .header__filterMenu-item {
   color: black;
   font-weight: 500;
@@ -265,9 +262,6 @@ h1, h2, h3, h4, h5, h6 {
 .header__filter {
   display: flex;
   align-items: center;
-}
-.header__content {
-  clear: both;
 }
 .header__title {
   color: white;
