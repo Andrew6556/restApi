@@ -8,6 +8,13 @@ import {Form} from "../modules/Form.js";
 
 let path_films = `http://kinopoiskapiunofficial.tech/api/v2.2/films/top`;
 
+let options = {
+    headers: {
+        'X-API-KEY': 'a85d700b-c477-4ca6-ad39-0e281102a9e5',
+        'Content-Type': 'application/json; charset=UTF-8',
+    }
+}
+
 
     // #00ff6a9a color для label когда поля заполнили верно
 document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
@@ -26,7 +33,6 @@ document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
     })
 })
 
-
 // console.log(document.querySelectorAll(".form"))
 document.querySelectorAll(".form").forEach(item =>{
     let form = new Form(item);
@@ -39,32 +45,6 @@ document.querySelectorAll(".form").forEach(item =>{
     })
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let options = {
-    headers: {
-        'X-API-KEY': '4dc0fb6b-92e7-4e5d-b3c6-960b4ce6443d',
-        'Content-Type': 'application/json; charset=UTF-8',
-    }
-}
 
 
 let header = new Header().wrapper;
@@ -98,12 +78,10 @@ async function create_slider(){
     // Получаем 20 фильмов из кинопоиска
     let response_films = await fetch(path_films, options),
         initial_films  = await response_films.json();
-
     // Используем замыкание!Чтоб не делать один и тот же запрос
     return function(sorted=false){
         // получаем divs на основе полученной информации о фильмах
         let div_cards = initial_films.films.map(film  => new Card(film).wrapper);
-
         //Если надо сортируем фильмы: 1.По убыванию 2.По возрастанию
         sorted ? div_cards:div_cards.sort((card_one, card_two) => {
             return (+card_one.querySelector(".card__viewer-rating").innerText -

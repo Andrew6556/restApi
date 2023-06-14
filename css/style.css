@@ -270,7 +270,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .card {
   max-width: 450px;
-  height: 450px;
+  height: 500px;
   border-radius: 20px;
   box-shadow: 1px 1px 2px 3px rgba(253, 253, 253, 0.334);
 }
@@ -287,7 +287,7 @@ h1, h2, h3, h4, h5, h6 {
 .card__title {
   color: #bf00ff;
   font-size: 28px;
-  padding: 8px 0;
+  padding: 8px 10px;
 }
 .card .card__inner {
   padding: 10px 20px;
