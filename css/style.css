@@ -175,6 +175,16 @@ h1, h2, h3, h4, h5, h6 {
   width: 96%;
 }
 
+@keyframes like_beat {
+  0% {
+    width: 80px;
+    height: 80px;
+  }
+  60% {
+    width: 100px;
+    height: 100px;
+  }
+}
 .btn {
   font-size: 18px;
   color: #ffffff;
@@ -273,6 +283,33 @@ h1, h2, h3, h4, h5, h6 {
   height: 500px;
   border-radius: 20px;
   box-shadow: 1px 1px 2px 3px rgba(253, 253, 253, 0.334);
+  position: relative;
+}
+.card:hover .card__hover {
+  visibility: visible;
+  opacity: 1;
+}
+.card__hover {
+  transition: visibility 1s, opacity 1s ease;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(44, 44, 85, 0.5607843137);
+  border-radius: 15px;
+}
+.card__hover-like {
+  animation: like_beat 1.5s ease-out infinite normal running 0s none;
+  transition: fill 81s ease-in-out;
+}
+.card__hover-like:hover {
+  animation-play-state: paused;
+  fill: red;
 }
 .card__img {
   height: 60%;
@@ -309,6 +346,17 @@ h1, h2, h3, h4, h5, h6 {
 .card__wrapper {
   justify-content: space-around;
   align-items: center;
+}
+
+.nav__profile {
+  width: 50px;
+  height: 50px;
+}
+.nav__profile-item {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .modalEntrance {
