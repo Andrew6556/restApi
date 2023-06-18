@@ -10,7 +10,7 @@ let path_films = `http://kinopoiskapiunofficial.tech/api/v2.2/films/top`;
 
 let options = {
     headers: {
-        'X-API-KEY': 'a85d700b-c477-4ca6-ad39-0e281102a9e5',
+        'X-API-KEY': '4ed6a4de-1c65-48b4-9d9b-922f9cfbd78e',
         'Content-Type': 'application/json; charset=UTF-8',
     }
 }

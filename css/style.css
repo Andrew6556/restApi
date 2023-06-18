@@ -304,8 +304,8 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 15px;
 }
 .card__hover-like {
+  cursor: pointer;
   animation: like_beat 1.5s ease-out infinite normal running 0s none;
-  transition: fill 81s ease-in-out;
 }
 .card__hover-like:hover {
   animation-play-state: paused;
@@ -349,14 +349,75 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav__profile {
+  position: relative;
+}
+.nav__profile:hover .nav__menu {
+  display: block;
+}
+.nav__profile-img {
   width: 50px;
   height: 50px;
+  cursor: pointer;
 }
 .nav__profile-item {
   height: 100%;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+}
+.nav__menu {
+  position: absolute;
+  display: none;
+  top: 50px;
+  right: 5px;
+  z-index: 100;
+  width: 200px;
+  background: #242431;
+  border: 1px solid rgba(201, 209, 217, 0.2941176471);
+  border-radius: 6px;
+}
+.nav span {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  display: block;
+  color: rgba(253, 253, 253, 0.712);
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.nav__userName {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.nav__item_fall {
+  position: relative;
+}
+.nav__item_fall:hover .nav__list {
+  display: block;
+}
+.nav__list {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -198px;
+  width: 100%;
+  background: #242431;
+  border: 1px solid rgba(201, 209, 217, 0.2941176471);
+  border-radius: 6px;
+}
+.nav__item {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.911);
+  padding: 16px 20px;
+  transition: all 500ms ease-in-out;
+  border-bottom: 1px solid rgba(201, 209, 217, 0.1450980392);
+}
+.nav__item:hover {
+  background: #bf00ff;
+  color: white;
+  cursor: pointer;
+}
+.nav__item:last-child {
+  border-radius: 0px 0px 6px 6px;
+}
+.nav__item:first-child {
+  border-radius: 6px 6px 0px 0px;
 }
 
 .modalEntrance {

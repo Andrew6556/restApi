@@ -159,8 +159,8 @@
         background: #2c2c558f;
         border-radius: 15px;
         &-like{
+            cursor: pointer;
             animation: like_beat 1.5s ease-out infinite normal running 0s none;
-            transition: fill 81s ease-in-out;
             &:hover{
                 animation-play-state: paused;
                 fill: red;
@@ -205,14 +205,77 @@
     }
 }
 .nav {
-    &__profile {
-        width: 50px;
-        height: 50px;
+    &__profile{
+        position: relative;
+        &:hover .nav__menu{
+            display: block;
+        }
+        &-img{
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+        &-item {
+            height: 100%;
+            width: 100%;
+        }
     }
-    &__profile-item {
-        height: 100%;
+    
+    &__menu {
+        position: absolute;
+        display: none;
+        top: 50px;
+        right: 5px;
+        z-index: 100;
+        width: 200px;
+        background: #242431;
+        border: 1px solid #c9d1d94b;
+        border-radius: 6px;
+    }
+    span{
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        display: block;
+        color: $clGrey;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    &__userName{
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    &__item_fall{
+        position: relative;
+        &:hover .nav__list{
+            display: block;
+        }
+    }
+    &__list{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: -198px;
         width: 100%;
-        object-fit:cover;
+        background: #242431;
+        border: 1px solid #c9d1d94b;
+        border-radius: 6px;
+    }
+    &__item {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.911);
+        padding: 16px 20px;
+        transition: all 500ms ease-in-out;
+        border-bottom: 1px solid #c9d1d925;
+        &:hover{
+            background: $clPurple;
+            color: $clWhite;
+            cursor: pointer;
+        }
+        &:last-child{
+            border-radius: 0px 0px 6px 6px; 
+        }
+        &:first-child{
+            border-radius: 6px 6px 0px 0px; 
+        }
     }
 }
 
