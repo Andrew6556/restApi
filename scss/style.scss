@@ -81,50 +81,6 @@
         color: $clPurple;
         font-weight: 500;
     }
-    &__filter{
-        transition:all 500ms ease-in-out 0s;
-        position: relative;
-        &:hover{
-            color: $clPurple;
-        }
-    }
-    &__filterText{
-        font-size: 18px;
-    }
-    &__filterImg{
-        width: 10px;
-        align-self: flex-end;
-        margin-left: 5px;
-    }
-    &__filterMenu {
-        background: $clWhite;
-        position: absolute;
-        width: 100%;
-        height: 72px;
-        left: 0;
-        bottom: -90px;
-        padding: 15px;
-        border-radius: 10px;
-        &-item {
-            color: black;
-            font-weight: 500;
-            font-size: 16px;
-            cursor: pointer;
-            &:hover{
-                color: $clPurple;
-            }
-            &:not(:last-child){
-                margin-bottom: 8px;
-            }
-        }
-    }
-    &__filter{
-        display: flex;
-        align-items: center;
-    }
-    &__content {
-        
-    }
     &__title {
         color: $clWhite;
         font-size: 36px;
@@ -281,6 +237,25 @@
 }
 
 // setting modal
+.modalFavorites{
+    background: rgba(0, 0, 0, 0.915);
+    &__content{
+        width: 450px;
+        height: 300px;
+        background: $clWhite;
+        box-shadow: none;
+        position: static;
+        border: 1px solid #ffffff2c;
+        padding: 20px;
+        box-shadow: rgba(255, 255, 255, 0.75) 0px 5px 15px;
+    }
+    &__close{
+        top: 4%;
+        right: 5%;
+        color: $clWhite;
+        font-weight: 600;
+    }
+}
 .modalEntrance{
     background: rgba(0, 0, 0, 0.915);
     &__content{
