@@ -25,6 +25,29 @@ export class Header{
                             <button class="header__SignUp btn header__group_choice title">Sign Up</button>
                             <button class="header__logIn  btn header__group_choice title">Log In</button>
                         </div>
+                        <nav class="nav">
+                            <div class="nav__profile">
+                                <div class="nav__profile-img">
+                                    <img class="nav__profile-item" src="/img/icon/profile/avatar.svg" alt="profile">
+                                </div>
+                                <ul class="nav__menu">
+                                    <li class="nav__item">
+                                        <span>Signed in as</span>
+                                        <p class="nav__userName">Andre9qsq2</p>
+                                    </li>
+                                    <li class="nav__item nav__item_fall">
+                                        <p>Sort movies</p>
+                                        <ul class="nav__list">
+                                            <li class="nav__item nav__item_Descending">Descending</li>
+                                            <li class="nav__item nav__item_Ascending">Ascending</li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav__item">View favorites</li>
+                                    <li class="nav__item">Sign out</li>
+                                </ul>
+                                
+                            </div>
+                        </nav>
                     </div>
                 </div>
                 <div class="header__content container">

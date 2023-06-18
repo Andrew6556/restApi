@@ -8,6 +8,13 @@ import {Form} from "../modules/Form.js";
 
 let path_films = `http://kinopoiskapiunofficial.tech/api/v2.2/films/top`;
 
+let options = {
+    headers: {
+        'X-API-KEY': '4ed6a4de-1c65-48b4-9d9b-922f9cfbd78e',
+        'Content-Type': 'application/json; charset=UTF-8',
+    }
+}
+
 
     // #00ff6a9a color для label когда поля заполнили верно
 document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
@@ -26,7 +33,6 @@ document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
     })
 })
 
-
 // console.log(document.querySelectorAll(".form"))
 document.querySelectorAll(".form").forEach(item =>{
     let form = new Form(item);
@@ -39,32 +45,6 @@ document.querySelectorAll(".form").forEach(item =>{
     })
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let options = {
-    headers: {
-        'X-API-KEY': '4dc0fb6b-92e7-4e5d-b3c6-960b4ce6443d',
-        'Content-Type': 'application/json; charset=UTF-8',
-    }
-}
 
 
 let header = new Header().wrapper;
@@ -98,13 +78,11 @@ async function create_slider(){
     // Получаем 20 фильмов из кинопоиска
     let response_films = await fetch(path_films, options),
         initial_films  = await response_films.json();
-
     // Используем замыкание!Чтоб не делать один и тот же запрос
     return function(sorted=false){
         // получаем divs на основе полученной информации о фильмах
         let div_cards = initial_films.films.map(film  => new Card(film).wrapper);
-
-        //Если надо сортируем фильмы: 1. По убыванию 2. По возрастанию
+        //Если надо сортируем фильмы: 1.По убыванию 2.По возрастанию
         sorted ? div_cards:div_cards.sort((card_one, card_two) => {
             return (+card_one.querySelector(".card__viewer-rating").innerText -
                 +card_two.querySelector(".card__viewer-rating").innerText)
@@ -117,20 +95,22 @@ async function create_slider(){
 
 document.querySelector(".header__filter").addEventListener("mouseover", (event) =>{
     document.querySelector(".header__filterMenu").classList.remove("form__active");
-    console.log(event.target)
     if (event.target.classList.contains("header__filterMenu-item")){
+        // При клике создаем слайдер на основе выбранного пункта сортировки
         event.target.addEventListener("click",(event) =>{
+            // удаляем начальный слайдер на странице
+            document.querySelector(".slider").remove()
             if (event.target.classList.contains("header__filterMenu-item_growth")){
-                document.querySelector(".slider").remove()
-                slider.then(data=> data())
+                slider.then(data => data())
             }else{
-                document.querySelector(".slider").remove()
-                slider.then(data=> data(true))
+                slider.then(data => data(true))
             }
         })
     }
 })
+
 document.querySelector(".header__filterMenu").addEventListener("mouseout",  (event) =>{
+    //при отводе мышки от меню убираем выпадающие menu
     document.querySelector(".header__filterMenu").classList.add("form__active");
 });
 

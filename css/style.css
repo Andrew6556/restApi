@@ -175,6 +175,16 @@ h1, h2, h3, h4, h5, h6 {
   width: 96%;
 }
 
+@keyframes like_beat {
+  0% {
+    width: 80px;
+    height: 80px;
+  }
+  60% {
+    width: 100px;
+    height: 100px;
+  }
+}
 .btn {
   font-size: 18px;
   color: #ffffff;
@@ -254,7 +264,7 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 .header__filterMenu-item:hover {
-  color: #248C46;
+  color: #bf00ff;
 }
 .header__filterMenu-item:not(:last-child) {
   margin-bottom: 8px;
@@ -270,9 +280,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 .card {
   max-width: 450px;
-  height: 450px;
+  height: 500px;
   border-radius: 20px;
   box-shadow: 1px 1px 2px 3px rgba(253, 253, 253, 0.334);
+  position: relative;
+}
+.card:hover .card__hover {
+  visibility: visible;
+  opacity: 1;
+}
+.card__hover {
+  transition: visibility 1s, opacity 1s ease;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(44, 44, 85, 0.5607843137);
+  border-radius: 15px;
+}
+.card__hover-like {
+  cursor: pointer;
+  animation: like_beat 1.5s ease-out infinite normal running 0s none;
+}
+.card__hover-like:hover {
+  animation-play-state: paused;
+  fill: red;
 }
 .card__img {
   height: 60%;
@@ -287,7 +324,7 @@ h1, h2, h3, h4, h5, h6 {
 .card__title {
   color: #bf00ff;
   font-size: 28px;
-  padding: 8px 0;
+  padding: 8px 10px;
 }
 .card .card__inner {
   padding: 10px 20px;
@@ -300,12 +337,87 @@ h1, h2, h3, h4, h5, h6 {
 .card__decor {
   color: rgba(253, 253, 253, 0.712);
   text-transform: uppercase;
-  font-size: 23px;
+  font-size: 16px;
   font-weight: 500;
+}
+.card__num {
+  font-size: 22px;
 }
 .card__wrapper {
   justify-content: space-around;
   align-items: center;
+}
+
+.nav__profile {
+  position: relative;
+}
+.nav__profile:hover .nav__menu {
+  display: block;
+}
+.nav__profile-img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.nav__profile-item {
+  height: 100%;
+  width: 100%;
+}
+.nav__menu {
+  position: absolute;
+  display: none;
+  top: 50px;
+  right: 5px;
+  z-index: 100;
+  width: 200px;
+  background: #242431;
+  border: 1px solid rgba(201, 209, 217, 0.2941176471);
+  border-radius: 6px;
+}
+.nav span {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  display: block;
+  color: rgba(253, 253, 253, 0.712);
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.nav__userName {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.nav__item_fall {
+  position: relative;
+}
+.nav__item_fall:hover .nav__list {
+  display: block;
+}
+.nav__list {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -198px;
+  width: 100%;
+  background: #242431;
+  border: 1px solid rgba(201, 209, 217, 0.2941176471);
+  border-radius: 6px;
+}
+.nav__item {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.911);
+  padding: 16px 20px;
+  transition: all 500ms ease-in-out;
+  border-bottom: 1px solid rgba(201, 209, 217, 0.1450980392);
+}
+.nav__item:hover {
+  background: #bf00ff;
+  color: white;
+  cursor: pointer;
+}
+.nav__item:last-child {
+  border-radius: 0px 0px 6px 6px;
+}
+.nav__item:first-child {
+  border-radius: 6px 6px 0px 0px;
 }
 
 .modalEntrance {
