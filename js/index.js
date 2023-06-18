@@ -92,27 +92,19 @@ async function create_slider(){
     
 }
 
-
-document.querySelector(".header__filter").addEventListener("mouseover", (event) =>{
-    document.querySelector(".header__filterMenu").classList.remove("form__active");
-    if (event.target.classList.contains("header__filterMenu-item")){
+document.querySelectorAll(".nav__sorted").forEach(div =>{
+    div.addEventListener("click", (event) =>{
+         // удаляем начальный слайдер на странице
+        document.querySelector(".slider").remove()
         // При клике создаем слайдер на основе выбранного пункта сортировки
-        event.target.addEventListener("click",(event) =>{
-            // удаляем начальный слайдер на странице
-            document.querySelector(".slider").remove()
-            if (event.target.classList.contains("header__filterMenu-item_growth")){
-                slider.then(data => data())
-            }else{
-                slider.then(data => data(true))
-            }
-        })
-    }
+        if(event.target.classList.contains("nav__item_best")){
+            slider.then(data => data(true))
+        }else{
+            slider.then(data => data())
+        }
+    })
 })
 
-document.querySelector(".header__filterMenu").addEventListener("mouseout",  (event) =>{
-    //при отводе мышки от меню убираем выпадающие menu
-    document.querySelector(".header__filterMenu").classList.add("form__active");
-});
 
 
 
