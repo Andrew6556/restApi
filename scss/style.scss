@@ -7,6 +7,9 @@
 
 
 
+
+
+
 .form__active{
     display: none;
 }
@@ -30,10 +33,6 @@
         width: 100px;
         height: 100px;
     }
-    // 100% {
-    //     width: 60px;
-    //     height: 60px;
-    // }
 }
 .btn{
     font-size: 18px;
@@ -177,7 +176,6 @@
             width: 100%;
         }
     }
-    
     &__menu {
         position: absolute;
         display: none;
@@ -235,25 +233,76 @@
         }
     }
 }
-
+:root {
+    --scrollbarWidth: 12px;
+    --scrollbarBg: grey;
+    --scrollbarThumb: black;
+}
 // setting modal
 .modalFavorites{
     background: rgba(0, 0, 0, 0.915);
     &__content{
         width: 450px;
         height: 300px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         background: $clWhite;
         box-shadow: none;
         position: static;
         border: 1px solid #ffffff2c;
-        padding: 20px;
-        box-shadow: rgba(255, 255, 255, 0.75) 0px 5px 15px;
     }
     &__close{
         top: 4%;
         right: 5%;
         color: $clWhite;
         font-weight: 600;
+    }
+    &__title{
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+    &__wrapper{
+        height: 90%;
+        border-radius: 15px;
+        padding: 15px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+    &__list {
+        height: 100%;
+        overflow-y: scroll;
+        scrollbar-color: var(--scrollbarThumb) var(--scrollbarBg);
+        &::root {
+            --scrollbarWidth: 12px;
+            --scrollbarBg: rgb(99, 102, 241);
+            --scrollbarThumb: rgb(244, 63, 94);
+        }
+        &::-webkit-scrollbar {
+            width: var(--scrollbarWidth);
+        }
+        &::-webkit-scrollbar-track {
+            background: var(--scrollbarBg);
+            border-radius: 6px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--scrollbarThumb);
+            border-radius: 6px;
+            border: 3px solid var(--scrollbarBg);
+        }
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+    }
+    &__img {
+        width: 45px;
+        height: 45px;
+        &-item{
+            object-fit: fill;
+            width: 100%;
+            height: 100%;
+        }
     }
 }
 .modalEntrance{
