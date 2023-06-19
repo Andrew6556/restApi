@@ -265,10 +265,11 @@ h1, h2, h3, h4, h5, h6 {
 .card__hover-like {
   cursor: pointer;
   animation: like_beat 1.5s ease-out infinite normal running 0s none;
+  transition: all 800ms ease-in-out;
 }
 .card__hover-like:hover {
   animation-play-state: paused;
-  fill: red;
+  stroke: rgba(255, 0, 0, 0.797);
 }
 .card__img {
   height: 60%;
@@ -379,24 +380,78 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 6px 6px 0px 0px;
 }
 
+:root {
+  --scrollbarWidth: 12px;
+  --scrollbarBg: grey;
+  --scrollbarThumb: black;
+}
+
 .modalFavorites {
   background: rgba(0, 0, 0, 0.915);
 }
 .modalFavorites__content {
   width: 450px;
-  height: 300px;
+  height: 400px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: white;
   box-shadow: none;
   position: static;
   border: 1px solid rgba(255, 255, 255, 0.1725490196);
-  padding: 20px;
-  box-shadow: rgba(255, 255, 255, 0.75) 0px 5px 15px;
 }
 .modalFavorites__close {
   top: 4%;
   right: 5%;
   color: white;
   font-weight: 600;
+}
+.modalFavorites__title {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.modalFavorites__wrapper {
+  height: 90%;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.modalFavorites__list {
+  height: 100%;
+  overflow-x: scroll;
+  display: flex;
+  scrollbar-color: var(--scrollbarThumb) var(--scrollbarBg);
+}
+.modalFavorites__list::-webkit-scrollbar {
+  height: 14px;
+  width: var(--scrollbarWidth);
+}
+.modalFavorites__list::-webkit-scrollbar-track {
+  background: var(--scrollbarBg);
+  border-radius: 6px;
+}
+.modalFavorites__list::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbarThumb);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBg);
+}
+.modalFavorites__sabtitle {
+  font-size: 20px;
+  margin-top: 5px;
+}
+.modalFavorites__item {
+  margin-right: 20px;
+}
+.modalFavorites__img {
+  width: 150px;
+  height: 202px;
+}
+.modalFavorites__img-item {
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 100%;
+  height: 100%;
 }
 
 .modalEntrance {
