@@ -116,9 +116,10 @@
         &-like{
             cursor: pointer;
             animation: like_beat 1.5s ease-out infinite normal running 0s none;
+            transition: all 800ms ease-in-out;
             &:hover{
                 animation-play-state: paused;
-                fill: red;
+                stroke: rgba(255, 0, 0, 0.797);
             }
         }
     }

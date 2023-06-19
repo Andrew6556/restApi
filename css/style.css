@@ -265,10 +265,11 @@ h1, h2, h3, h4, h5, h6 {
 .card__hover-like {
   cursor: pointer;
   animation: like_beat 1.5s ease-out infinite normal running 0s none;
+  transition: all 800ms ease-in-out;
 }
 .card__hover-like:hover {
   animation-play-state: paused;
-  fill: red;
+  stroke: rgba(255, 0, 0, 0.797);
 }
 .card__img {
   height: 60%;

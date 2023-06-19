@@ -30,8 +30,8 @@ export class Header{
                                             <li class="nav__item nav__sorted nav__item_worst">First worst movies</li>
                                         </ul>
                                     </li>
-                                    <li class="nav__item">View favorites</li>
-                                    <li class="nav__item">Sign out</li>
+                                    <li class="nav__item nav__item_favorites">View favorites</li>
+                                    <li class="nav__item nav__item_out">Sign out</li>
                                 </ul>
                             </div>
                         </nav>
