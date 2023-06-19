@@ -51,15 +51,12 @@ document.querySelectorAll(".form").forEach(item =>{
                 password:form_password,
             })
             link.target.reset()
+            form.return_original()
         }else{
-            let check_data = users_rg.email === form_email && users_rg.login === form_login
-                                        && +users_rg.password === +form_password ? true:false;
+            let check_data = users_rg[0].email === form_email && users_rg[0].login === form_login
+                                        && +users_rg[0].password === +form_password ? true:false;
             console.log(check_data)
         }
-        
-        // if (modal.validation(link.target, data.add_card) !== false){
-        //     link.target.reset()
-        // }
     })
 })
 
@@ -127,18 +124,3 @@ document.querySelectorAll(".nav__sorted").forEach(div =>{
         }
     })
 })
-
-
-
-
-async function c(){
-    let r = await fetch("http://kinopoiskapiunofficial.tech/api/v2.2/films/326", options);
-    let q = await r.json();
-    console.log(q)
-}
-c()
-
-
-
-
-

@@ -9,7 +9,6 @@ export class Form{
         let event_list = ['keyup','keydown'];
 
         this.show_password();
-
         event_list.map(event => this.form_Wrapper.querySelector(".input__login").addEventListener(event, this.login_verification))
         event_list.map(event => this.form_Wrapper.querySelector(".input__email").addEventListener(event, this.check_email))
         if (this.input_confirm){
@@ -111,7 +110,11 @@ export class Form{
         let input_value = Array.from(this.form_Wrapper.querySelectorAll(".form__input")).map(elem => {
             return elem.value
         });
-
         return input_value
+    }
+    return_original(){
+        this.form_Wrapper.querySelectorAll(".form__input").forEach(input =>{
+            input.classList.remove("correct__data")
+        })
     }
 }

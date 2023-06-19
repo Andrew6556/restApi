@@ -352,6 +352,24 @@
         
     }
 }
+// form
+.error__data{
+    position: relative;
+    &::before{
+        content: "Ошибка!Проверьте все введеные данные";
+        display: none;
+        position: absolute;
+        z-index: 1000;
+        left: 101%;
+        top: 7px;
+        font-size: 18px;
+        color: #f0f4f8;
+        background: #ff0000c2;
+        white-space: nowrap;
+        border-radius: 15px;
+        padding: 10px
+    }
+}
 .form {
     &__item {
         margin-bottom: 20px;
