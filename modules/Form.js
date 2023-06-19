@@ -112,7 +112,6 @@ export class Form{
             return elem.value
         });
 
-        input_value.splice(-1, 1)
         return input_value
     }
 }

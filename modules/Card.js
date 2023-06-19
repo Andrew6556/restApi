@@ -31,7 +31,6 @@ export class Card{
         },{once:true})
     }
     add_favorites(){
-        console.log(1)
         let title = event.target.closest(".card").querySelector(".card__title").innerText,
             img   = event.target.closest(".card").querySelector(".card__img-item").src;
         

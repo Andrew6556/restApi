@@ -160,8 +160,12 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
+.profile_active {
+  display: none;
+}
+
 .correct__data {
-  border: 2px solid rgba(15, 82, 118, 0.47);
+  border: 2px solid green;
   box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
 }
 
@@ -518,7 +522,6 @@ h1, h2, h3, h4, h5, h6 {
   height: 50px;
   width: 100%;
   border-radius: 15px;
-  border: 1px solid rgba(4, 81, 205, 0.2352941176);
   padding: 0 12px;
   font-size: 18px;
   transition: all 500ms ease-in-out;
