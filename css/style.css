@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -160,8 +161,12 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
+.hidden__active {
+  display: none;
+}
+
 .correct__data {
-  border: 2px solid rgba(15, 82, 118, 0.47);
+  border: 2px solid green;
   box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
 }
 
@@ -497,6 +502,23 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(25, 146, 212, 0.7529411765);
 }
 
+.error__data {
+  position: relative;
+}
+.error__data::before {
+  content: "Ошибка!Проверьте все введеные данные";
+  position: absolute;
+  z-index: 1000;
+  left: 101%;
+  top: 7px;
+  font-size: 18px;
+  color: #f0f4f8;
+  background: rgba(255, 0, 0, 0.7607843137);
+  white-space: nowrap;
+  border-radius: 15px;
+  padding: 10px;
+}
+
 .form__item {
   margin-bottom: 20px;
 }
@@ -518,7 +540,6 @@ h1, h2, h3, h4, h5, h6 {
   height: 50px;
   width: 100%;
   border-radius: 15px;
-  border: 1px solid rgba(4, 81, 205, 0.2352941176);
   padding: 0 12px;
   font-size: 18px;
   transition: all 500ms ease-in-out;

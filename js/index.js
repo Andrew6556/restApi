@@ -6,15 +6,13 @@ import {Slider} from "../modules/Slider.js";
 import {Form} from "../modules/Form.js";
 
 
-let path_films = `http://kinopoiskapiunofficial.tech/api/v2.2/films/top`;
-
-let options = {
-    headers: {
-        'X-API-KEY': '4ed6a4de-1c65-48b4-9d9b-922f9cfbd78e',
-        'Content-Type': 'application/json; charset=UTF-8',
-    }
+const path_films = `http://kinopoiskapiunofficial.tech/api/v2.2/films/top`,
+    options = {
+        headers: {
+            'X-API-KEY': '4dc0fb6b-92e7-4e5d-b3c6-960b4ce6443d',
+            'Content-Type': 'application/json; charset=UTF-8',
+        }
 }
-
 
     // #00ff6a9a color для label когда поля заполнили верно
 document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
@@ -33,15 +31,40 @@ document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
     })
 })
 
-// console.log(document.querySelectorAll(".form"))
+let users_rg = []
 document.querySelectorAll(".form").forEach(item =>{
     let form = new Form(item);
+    
     form.form_Wrapper.addEventListener("submit", (link) =>{
         link.preventDefault();
         console.log(form.get_data())
-        // if (modal.validation(link.target, data.add_card) !== false){
-        //     link.target.reset()
-        // }
+        let form_data = form.get_data();
+        
+        let form_email    = form_data[0],
+            form_login    = form_data[1],
+            form_password = form_data[2];
+
+        if (form.form_Wrapper.classList.contains("form__SignUp")){
+            users_rg.push({
+                email:form_email,
+                login:form_login,
+                password:form_password,
+            })
+            link.target.reset()
+            form.return_original()
+        }else{
+            let check_data = users_rg[0].email === form_email && users_rg[0].login === form_login
+                                        && +users_rg[0].password === +form_password ? true:false;
+            if (check_data){
+                link.target.reset()
+                form.return_original()
+                document.querySelector(".nav").classList.toggle("hidden__active")
+                document.querySelector(".header__sistem").classList.toggle("hidden__active")
+                document.querySelector(".modalEntrance__btn-LogIn").classList.remove("error__data")
+            }else{
+                document.querySelector(".modalEntrance__btn-LogIn").classList.add("error__data")
+            }
+        }
     })
 })
 
@@ -49,6 +72,11 @@ document.querySelectorAll(".form").forEach(item =>{
 
 let header = new Header().wrapper;
 document.querySelector(".wrapper").appendChild(header);
+
+document.querySelector(".nav__item_out").addEventListener("click", (event) =>{
+    event.target.closest(".nav").classList.toggle("hidden__active")
+    document.querySelector(".header__sistem").classList.toggle("hidden__active")
+})
 
 let slider = create_slider();
 slider.then(data => data())
@@ -104,18 +132,3 @@ document.querySelectorAll(".nav__sorted").forEach(div =>{
         }
     })
 })
-
-
-
-
-async function c(){
-    let r = await fetch("http://kinopoiskapiunofficial.tech/api/v2.2/films/326", options);
-    let q = await r.json();
-    console.log(q)
-}
-c()
-
-
-
-
-

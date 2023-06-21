@@ -9,7 +9,6 @@ export class Form{
         let event_list = ['keyup','keydown'];
 
         this.show_password();
-
         event_list.map(event => this.form_Wrapper.querySelector(".input__login").addEventListener(event, this.login_verification))
         event_list.map(event => this.form_Wrapper.querySelector(".input__email").addEventListener(event, this.check_email))
         if (this.input_confirm){
@@ -94,7 +93,7 @@ export class Form{
         }
         this.activate_button()
     }
-    fullness_check_password(event){
+    fullness_check_password = (event) =>{
         let label_password = event.target.closest(".form__item_password").querySelector(".label__password");
         label_password.style.display = "flex";
         if (!event.target.value.length){
@@ -106,13 +105,17 @@ export class Form{
             label_password.style.display = "none";
             event.target.classList.add("correct__data")
         }
+        this.activate_button()
     }
     get_data(){
         let input_value = Array.from(this.form_Wrapper.querySelectorAll(".form__input")).map(elem => {
             return elem.value
         });
-
-        input_value.splice(-1, 1)
         return input_value
+    }
+    return_original(){
+        this.form_Wrapper.querySelectorAll(".form__input").forEach(input =>{
+            input.classList.remove("correct__data")
+        })
     }
 }
