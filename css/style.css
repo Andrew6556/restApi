@@ -161,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
-.profile_active {
+.hidden__active {
   display: none;
 }
 
@@ -507,7 +507,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .error__data::before {
   content: "Ошибка!Проверьте все введеные данные";
-  display: none;
   position: absolute;
   z-index: 1000;
   left: 101%;

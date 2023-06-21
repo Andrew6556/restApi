@@ -13,7 +13,7 @@
 .form__active{
     display: none;
 }
-.profile_active{
+.hidden__active{
     display: none;
 }
 .correct__data{
@@ -357,7 +357,6 @@
     position: relative;
     &::before{
         content: "Ошибка!Проверьте все введеные данные";
-        display: none;
         position: absolute;
         z-index: 1000;
         left: 101%;

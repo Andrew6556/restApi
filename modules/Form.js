@@ -93,7 +93,7 @@ export class Form{
         }
         this.activate_button()
     }
-    fullness_check_password(event){
+    fullness_check_password = (event) =>{
         let label_password = event.target.closest(".form__item_password").querySelector(".label__password");
         label_password.style.display = "flex";
         if (!event.target.value.length){
@@ -105,6 +105,7 @@ export class Form{
             label_password.style.display = "none";
             event.target.classList.add("correct__data")
         }
+        this.activate_button()
     }
     get_data(){
         let input_value = Array.from(this.form_Wrapper.querySelectorAll(".form__input")).map(elem => {

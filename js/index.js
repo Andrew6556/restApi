@@ -55,7 +55,15 @@ document.querySelectorAll(".form").forEach(item =>{
         }else{
             let check_data = users_rg[0].email === form_email && users_rg[0].login === form_login
                                         && +users_rg[0].password === +form_password ? true:false;
-            console.log(check_data)
+            if (check_data){
+                link.target.reset()
+                form.return_original()
+                document.querySelector(".nav").classList.toggle("hidden__active")
+                document.querySelector(".header__sistem").classList.toggle("hidden__active")
+                document.querySelector(".modalEntrance__btn-LogIn").classList.remove("error__data")
+            }else{
+                document.querySelector(".modalEntrance__btn-LogIn").classList.add("error__data")
+            }
         }
     })
 })
@@ -65,9 +73,9 @@ document.querySelectorAll(".form").forEach(item =>{
 let header = new Header().wrapper;
 document.querySelector(".wrapper").appendChild(header);
 
-document.querySelector(".nav__item_out").addEventListener("click",(event) =>{
-    event.target.closest(".nav").classList.toggle("form__active")
-    // document.querySelector(".header__group").classList.toggle("profile_active")
+document.querySelector(".nav__item_out").addEventListener("click", (event) =>{
+    event.target.closest(".nav").classList.toggle("hidden__active")
+    document.querySelector(".header__sistem").classList.toggle("hidden__active")
 })
 
 let slider = create_slider();
