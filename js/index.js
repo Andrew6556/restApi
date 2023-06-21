@@ -14,7 +14,6 @@ const path_films = `http://kinopoiskapiunofficial.tech/api/v2.2/films/top`,
         }
 }
 
-    // #00ff6a9a color для label когда поля заполнили верно
 document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
     button.addEventListener("click", function (event){
         if(!button.classList.contains("modalEntrance__group_active")){
@@ -37,7 +36,6 @@ document.querySelectorAll(".form").forEach(item =>{
     
     form.form_Wrapper.addEventListener("submit", (link) =>{
         link.preventDefault();
-        console.log(form.get_data())
         let form_data = form.get_data();
         
         let form_email    = form_data[0],
@@ -58,8 +56,11 @@ document.querySelectorAll(".form").forEach(item =>{
             if (check_data){
                 link.target.reset()
                 form.return_original()
+                // удаляем меню для входа в систему
                 document.querySelector(".nav").classList.toggle("hidden__active")
+                // добавляем профиль пользователя со всеми возможностями
                 document.querySelector(".header__sistem").classList.toggle("hidden__active")
+                // очищаем форму от возможных ошибок припопытки войти
                 document.querySelector(".modalEntrance__btn-LogIn").classList.remove("error__data")
             }else{
                 document.querySelector(".modalEntrance__btn-LogIn").classList.add("error__data")
@@ -73,22 +74,40 @@ document.querySelectorAll(".form").forEach(item =>{
 let header = new Header().wrapper;
 document.querySelector(".wrapper").appendChild(header);
 
+let slider = create_slider();
+slider.then(data => data())
+
 document.querySelector(".nav__item_out").addEventListener("click", (event) =>{
     event.target.closest(".nav").classList.toggle("hidden__active")
     document.querySelector(".header__sistem").classList.toggle("hidden__active")
 })
-
-let slider = create_slider();
-slider.then(data => data())
-
-document.querySelector(".modal__close").addEventListener("click", () =>{
-    document.querySelector(".modalEntrance").classList.toggle("active")
-    document.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
+document.querySelector(".nav__item_favorites").addEventListener("click", () =>{
+    document.querySelector(".modalFavorites").classList.toggle("active")
 })
+
+document.querySelectorAll(".modal__close").forEach(close => {
+    // обработка закрытия модал
+    let modals  = Array.from(document.querySelectorAll(".modal"));
+    close.addEventListener("click", function(){
+        let current_modal = modals.filter(modal => !modal.classList.contains("active"))[0];
+        current_modal.classList.toggle("active")
+        if (current_modal.classList.contains("modalEntrance")){
+            document.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
+        }else{
+            document.querySelector(".slider").remove()
+            slider.then(data => data())
+        }
+    })
+})
+
+
+
 document.querySelectorAll(".header__group_choice").forEach(button => {
     button.addEventListener("click", function (){
+        // открываем модалку
         document.querySelector(".modalEntrance").classList.toggle("active")
         if(button.classList.contains("header__SignUp")){
+            // при клике на кнопку регистрации даем ей цвет активной кнопк в форме
             document.querySelector(".modalEntrance__SignUp").classList.add("modalEntrance__group_active")
             
             document.querySelector('.form__SignUp').classList.remove("form__active")
