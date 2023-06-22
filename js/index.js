@@ -127,21 +127,21 @@ async function create_slider(){
     try{
         let response_films = await fetch(path_films, options);
             initial_films  = await response_films.json();
+        
+        // Используем замыкание!Чтоб не делать один и тот же запрос
+        return function(sorted=false){
+            // получаем divs на основе полученной информации о фильмах
+            let div_cards = initial_films.films.map(film  => new Card(film).wrapper);
+            //Если надо сортируем фильмы: 1.По убыванию 2.По возрастанию
+            sorted ? div_cards:div_cards.sort((card_one, card_two) => {
+                return (+card_one.querySelector(".card__viewer-rating").innerText -
+                    +card_two.querySelector(".card__viewer-rating").innerText)
+                })
+            document.querySelector(".header__wrapper").appendChild(new Slider(div_cards).wrapper)
+        }
     }catch(error){
         console.log(`Ошибка --- ${error}}`)
     }
-    // Используем замыкание!Чтоб не делать один и тот же запрос
-    return function(sorted=false){
-        // получаем divs на основе полученной информации о фильмах
-        let div_cards = initial_films.films.map(film  => new Card(film).wrapper);
-        //Если надо сортируем фильмы: 1.По убыванию 2.По возрастанию
-        sorted ? div_cards:div_cards.sort((card_one, card_two) => {
-            return (+card_one.querySelector(".card__viewer-rating").innerText -
-                +card_two.querySelector(".card__viewer-rating").innerText)
-            })
-        document.querySelector(".header__wrapper").appendChild(new Slider(div_cards).wrapper)
-    }
-    
 }
 
 document.querySelectorAll(".nav__sorted").forEach(div =>{
