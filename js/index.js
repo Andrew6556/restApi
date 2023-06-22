@@ -62,6 +62,9 @@ document.querySelectorAll(".form").forEach(item =>{
                 document.querySelector(".header__sistem").classList.toggle("hidden__active")
                 // очищаем форму от возможных ошибок припопытки войти
                 document.querySelector(".modalEntrance__btn-LogIn").classList.remove("error__data")
+
+                document.querySelector(".slider").remove()
+                slider.then(data => data(false, true))
             }else{
                 document.querySelector(".modalEntrance__btn-LogIn").classList.add("error__data")
             }
@@ -80,6 +83,9 @@ slider.then(data => data())
 document.querySelector(".nav__item_out").addEventListener("click", (event) =>{
     event.target.closest(".nav").classList.toggle("hidden__active")
     document.querySelector(".header__sistem").classList.toggle("hidden__active")
+
+    document.querySelector(".slider").remove()
+    slider.then(data => data())
 })
 document.querySelector(".nav__item_favorites").addEventListener("click", () =>{
     document.querySelector(".modalFavorites").classList.toggle("active")
@@ -87,15 +93,12 @@ document.querySelector(".nav__item_favorites").addEventListener("click", () =>{
 
 document.querySelectorAll(".modal__close").forEach(close => {
     // обработка закрытия модал
-    let modals  = Array.from(document.querySelectorAll(".modal"));
+    let modals = Array.from(document.querySelectorAll(".modal"));
     close.addEventListener("click", function(){
         let current_modal = modals.filter(modal => !modal.classList.contains("active"))[0];
         current_modal.classList.toggle("active")
         if (current_modal.classList.contains("modalEntrance")){
             document.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
-        }else{
-            document.querySelector(".slider").remove()
-            slider.then(data => data())
         }
     })
 })
@@ -129,9 +132,9 @@ async function create_slider(){
             initial_films  = await response_films.json();
         
         // Используем замыкание!Чтоб не делать один и тот же запрос
-        return function(sorted=false){
+        return function(sorted=false, active_click){
             // получаем divs на основе полученной информации о фильмах
-            let div_cards = initial_films.films.map(film  => new Card(film).wrapper);
+            let div_cards = initial_films.films.map(film  => new Card(film,active_click).wrapper);
             //Если надо сортируем фильмы: 1.По убыванию 2.По возрастанию
             sorted ? div_cards:div_cards.sort((card_one, card_two) => {
                 return (+card_one.querySelector(".card__viewer-rating").innerText -
@@ -150,9 +153,9 @@ document.querySelectorAll(".nav__sorted").forEach(div =>{
         document.querySelector(".slider").remove()
         // При клике создаем слайдер на основе выбранного пункта сортировки
         if(event.target.classList.contains("nav__item_best")){
-            slider.then(data => data(true))
+            slider.then(data => data(true,true))
         }else{
-            slider.then(data => data())
+            slider.then(data => data(true,true))
         }
     })
 })
