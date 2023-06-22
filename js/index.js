@@ -19,7 +19,7 @@ document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
         if(!button.classList.contains("modalEntrance__group_active")){
             event.target.parentElement.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
             event.target.classList.add("modalEntrance__group_active")
-            if (event.target.innerText == "Log In"){
+            if (event.target.classList.contains("modalEntrance__logIn")){
                 document.querySelector('.form__SignUp').classList.add("form__active")
                 document.querySelector('.form__LogIn').classList.remove("form__active")
             }else{
@@ -60,7 +60,7 @@ document.querySelectorAll(".form").forEach(item =>{
                 document.querySelector(".nav").classList.toggle("hidden__active")
                 // добавляем профиль пользователя со всеми возможностями
                 document.querySelector(".header__sistem").classList.toggle("hidden__active")
-                // очищаем форму от возможных ошибок припопытки войти
+                // очищаем форму от возможных ошибок при попытки войти
                 document.querySelector(".modalEntrance__btn-LogIn").classList.remove("error__data")
 
                 document.querySelector(".slider").remove()
