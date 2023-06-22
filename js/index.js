@@ -123,8 +123,13 @@ document.querySelectorAll(".header__group_choice").forEach(button => {
 
 async function create_slider(){
     // Получаем 20 фильмов из кинопоиска
-    let response_films = await fetch(path_films, options),
-        initial_films  = await response_films.json();
+    let initial_films;
+    try{
+        let response_films = await fetch(path_films, options);
+            initial_films  = await response_films.json();
+    }catch(error){
+        console.log(`Ошибка --- ${error}}`)
+    }
     // Используем замыкание!Чтоб не делать один и тот же запрос
     return function(sorted=false){
         // получаем divs на основе полученной информации о фильмах
