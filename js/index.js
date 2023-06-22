@@ -155,7 +155,7 @@ document.querySelectorAll(".nav__sorted").forEach(div =>{
         if(event.target.classList.contains("nav__item_best")){
             slider.then(data => data(true,true))
         }else{
-            slider.then(data => data(true,true))
+            slider.then(data => data(false,true))
         }
     })
 })
