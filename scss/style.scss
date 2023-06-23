@@ -243,6 +243,8 @@
     --scrollbarThumb: black;
 }
 // setting modal
+
+// Modal Избранного
 .modalFavorites{
     background: rgba(0, 0, 0, 0.915);
     &__content{
@@ -309,6 +311,56 @@
         }
     }
 }
+//Modal Уведомления
+.modalNotification {
+    background: rgba(0, 0, 0, 0.915);
+    &__content {
+        width: 450px;
+        height: 400px;
+        background: $clWhite;
+        border: 1px solid #ffffff2c;
+        border-radius:8px;
+        box-shadow: rgba(255, 255, 255, 0.75) 0px 5px 15px;
+    }
+    &__title {
+        font-size: 25px;
+        margin-top: 10px;
+    }
+    &__success-top {
+        height: 50%;
+        width: 100%;
+        background: #8CC248;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    &__success-bottom{
+        text-align: center;
+        margin-top: 50px;
+    }
+    &__text{
+        color: rgba(0, 0, 0, 0.716);
+        font-size: 18px;
+        line-height: 23.4px;
+        letter-spacing: 2.5px;
+    }
+    &__btn{
+        background: #8CC248;
+        padding: 15px 0;
+        width: 60%;
+        margin-top: 8%;
+        box-shadow: -7px 4px 20px 0px #8CC248;
+        &:hover{
+            background:#8bc248c2 ;
+            box-shadow: none;
+        }
+    }
+}
+
+
+// Modal входа
 .modalEntrance{
     background: rgba(0, 0, 0, 0.915);
     &__content{

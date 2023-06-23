@@ -50,6 +50,9 @@ document.querySelectorAll(".form").forEach(item =>{
             })
             link.target.reset()
             form.return_original()
+
+            document.querySelector(".modalNotification").classList.toggle("active")
+            // you have successfully logged in
         }else{
             let check_data = users_rg[0].email === form_email && users_rg[0].login === form_login
                                         && +users_rg[0].password === +form_password ? true:false;
@@ -63,8 +66,13 @@ document.querySelectorAll(".form").forEach(item =>{
                 // очищаем форму от возможных ошибок при попытки войти
                 document.querySelector(".modalEntrance__btn-LogIn").classList.remove("error__data")
 
+
+                document.querySelector(".modalNotification").classList.toggle("active")
+                document.querySelector(".modalNotification__text").innerText = "you have successfully logged in";
+
                 document.querySelector(".slider").remove()
                 slider.then(data => data(false, true))
+
             }else{
                 document.querySelector(".modalEntrance__btn-LogIn").classList.add("error__data")
             }
@@ -84,6 +92,7 @@ document.querySelector(".nav__item_out").addEventListener("click", (event) =>{
     event.target.closest(".nav").classList.toggle("hidden__active")
     document.querySelector(".header__sistem").classList.toggle("hidden__active")
 
+    document.querySelector("modalNotification__text").innerText = "Congratulations your accound has been successfully created"
     document.querySelector(".slider").remove()
     slider.then(data => data())
 })
@@ -102,7 +111,9 @@ document.querySelectorAll(".modal__close").forEach(close => {
         }
     })
 })
-
+document.querySelector(".modalNotification__btn").addEventListener("click",(event)=>{
+    event.target.closest(".modal").classList.toggle("active")
+})
 
 
 document.querySelectorAll(".header__group_choice").forEach(button => {

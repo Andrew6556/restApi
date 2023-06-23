@@ -459,6 +459,53 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
 }
 
+.modalNotification {
+  background: rgba(0, 0, 0, 0.915);
+}
+.modalNotification__content {
+  width: 450px;
+  height: 400px;
+  background: white;
+  border: 1px solid rgba(255, 255, 255, 0.1725490196);
+  border-radius: 8px;
+  box-shadow: rgba(255, 255, 255, 0.75) 0px 5px 15px;
+}
+.modalNotification__title {
+  font-size: 25px;
+  margin-top: 10px;
+}
+.modalNotification__success-top {
+  height: 50%;
+  width: 100%;
+  background: #8CC248;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.modalNotification__success-bottom {
+  text-align: center;
+  margin-top: 50px;
+}
+.modalNotification__text {
+  color: rgba(0, 0, 0, 0.716);
+  font-size: 18px;
+  line-height: 23.4px;
+  letter-spacing: 2.5px;
+}
+.modalNotification__btn {
+  background: #8CC248;
+  padding: 15px 0;
+  width: 60%;
+  margin-top: 8%;
+  box-shadow: -7px 4px 20px 0px #8CC248;
+}
+.modalNotification__btn:hover {
+  background: rgba(139, 194, 72, 0.7607843137);
+  box-shadow: none;
+}
+
 .modalEntrance {
   background: rgba(0, 0, 0, 0.915);
 }
