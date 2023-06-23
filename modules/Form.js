@@ -50,14 +50,17 @@ export class Form{
         }
     }
     login_verification = (event) => {
-        let label_password = event.target.closest(".form__item_login").querySelector(".label__login");
+        let label_password = event.target.closest(".form__item_login").querySelector(".label__login"),
+            input_value    = event.target.value;
 
         label_password.style.display = "flex";
-        if(!event.target.value.length){
+        if(!input_value.length){
             label_password.innerText = "Данное поле не заполненно";
-        }else if (!event.target.value.startsWith("@")){
+        }else if (!input_value.startsWith("@")){
             label_password.innerText = "Логин должен начинаться символа @";
-        }else if(event.target.value.length - 1 < 8){
+        }else if(input_value.split("").filter(letter => letter == "@").length > 1){
+            label_password.innerText = "Превышение кол-ва символа вводе";
+        }else if(input_value.length - 1 < 8){
             label_password.innerText = "Логин должен состоять минимум из 8 символов";
             event.target.classList.remove("correct__data")
         }else{
