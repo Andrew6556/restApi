@@ -90,6 +90,8 @@ export class Form{
             this.input_confirm.classList.add("correct__data")
         }else if(!this.input_confirm.value.length){
             this.form_Wrapper.querySelector(".label__confirmPassword").style.display = "none";
+        }else if(this.input_confirm.value == this.input_password.value){
+            this.form_Wrapper.querySelector(".label__confirmPassword").style.display = "none";
         }else{
             label_password.style.display = "flex";
             this.input_confirm.classList.remove("correct__data")
